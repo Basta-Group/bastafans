@@ -35,22 +35,22 @@ const TestimonialsSlider: React.FC = () => {
 
   const testimonials = [
     {
-      name: "COO, FastSpin Studios",
+      name: "CFO, OneThing Design Studios",
       rating: 5,
       image: fastspinCooImage,
-      text: "Finally, a cert platform that understands how fast game studios move",
+      text: "NGLCert's platform has revolutionized our certification process, making it faster and more efficient than ever before.",
     },
     {
       name: "CTO, Titan Slots",
       rating: 4,
       image: titanSlotsCtoImage,
-      text: "NGLCert gave us everything we needed to enter the market quickly. Their reports were accepted by our regulator instantly",
+      text: "NGLCert gave us everything we needed to enter the market quickly. Their reports were accepted by our regulator instantly.",
     },
     {
       name: "COO, FastSpin Studios",
       rating: 4,
       image: fastspinCoo2Image,
-      text: "Finally, a cert platform that understands how fast game studios move",
+      text: "Finally, a cert platform that understands how fast game studios move.",
     },
   ];
 

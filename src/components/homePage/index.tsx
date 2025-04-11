@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import TestimonialsSlider from "../reusableComponents/TestimonialsSlider/TestimonialsSlider";
 import TrustCards from "../reusableComponents/TrustCards/TrustCards";
 import manWorkingLaptop from "../../assets/man-working-laptop.png";
@@ -6,8 +6,86 @@ import certifyImg1 from "../../assets/certify-img-1.png";
 import certifyImg2 from "../../assets/certify-img-2.png";
 import certifyImg3 from "../../assets/certify-img-3.png";
 import worldMapDotted from "../../assets/world-map-dotted.png";
+import sgMail from "@sendgrid/mail";
+
+// Initialize SendGrid with your API key
+sgMail.setApiKey(import.meta.env.VITE_SENDGRID_API_KEY || "");
 
 const Home: React.FC = () => {
+  const [formData, setFormData] = useState({
+    companyName: "",
+    fullName: "",
+    email: "",
+    gameType: "",
+    numberOfGames: "",
+  });
+
+  const [formStatus, setFormStatus] = useState({
+    submitting: false,
+    success: false,
+    error: false,
+    message: "",
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormStatus({
+      submitting: true,
+      success: false,
+      error: false,
+      message: "",
+    });
+
+    try {
+      const response = await fetch("http://localhost:3001/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send email");
+      }
+
+      await response.json();
+
+      setFormStatus({
+        submitting: false,
+        success: true,
+        error: false,
+        message:
+          "Thank you for joining the waitlist! We will contact you soon.",
+      });
+
+      // Reset form
+      setFormData({
+        companyName: "",
+        fullName: "",
+        email: "",
+        gameType: "",
+        numberOfGames: "",
+      });
+    } catch (error) {
+      console.error("Error sending email:", error);
+      setFormStatus({
+        submitting: false,
+        success: false,
+        error: true,
+        message: "There was an error submitting your form. Please try again.",
+      });
+    }
+  };
+
   const trustCardsData = [
     {
       icon: (
@@ -413,37 +491,75 @@ const Home: React.FC = () => {
                 <h3 className="text-2xl font-bold text-center mb-6 text-black">
                   Contact NGL
                 </h3>
-                <form className="space-y-4">
+                <form className="space-y-4" onSubmit={handleSubmit}>
                   <input
                     type="text"
+                    name="companyName"
+                    value={formData.companyName}
+                    onChange={handleInputChange}
                     placeholder="Company Name"
                     className="w-full p-3 border border-gray-300 rounded bg-white"
+                    required
                   />
                   <input
                     type="text"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleInputChange}
                     placeholder="Full Name"
                     className="w-full p-3 border border-gray-300 rounded bg-white"
+                    required
                   />
                   <input
                     type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     placeholder="Email"
                     className="w-full p-3 border border-gray-300 rounded bg-white"
+                    required
                   />
                   <input
                     type="text"
+                    name="gameType"
+                    value={formData.gameType}
+                    onChange={handleInputChange}
                     placeholder="Game Type (Slot / RGS / Other)"
                     className="w-full p-3 border border-gray-300 rounded bg-white"
+                    required
                   />
                   <input
                     type="number"
+                    name="numberOfGames"
+                    value={formData.numberOfGames}
+                    onChange={handleInputChange}
                     placeholder="Estimated Number Of Games"
                     className="w-full p-3 border border-gray-300 rounded bg-white"
+                    required
                   />
+                  {formStatus.message && (
+                    <div
+                      className={`p-3 rounded ${
+                        formStatus.success
+                          ? "bg-green-100 text-green-700"
+                          : "bg-red-100 text-red-700"
+                      }`}
+                    >
+                      {formStatus.message}
+                    </div>
+                  )}
                   <button
                     type="submit"
-                    className="w-full bg-[#3147C3] text-white  rounded-full text-white py-3 font-semibold hover:from-blue-600 hover:to-blue-800 transition duration-300"
+                    disabled={formStatus.submitting}
+                    className={`w-full bg-[#3147C3] text-white rounded-full py-3 font-semibold hover:from-blue-600 hover:to-blue-800 transition duration-300 ${
+                      formStatus.submitting
+                        ? "opacity-50 cursor-not-allowed"
+                        : ""
+                    }`}
                   >
-                    JOIN THE WAITLIST
+                    {formStatus.submitting
+                      ? "SUBMITTING..."
+                      : "JOIN THE WAITLIST"}
                   </button>
                 </form>
               </div>
