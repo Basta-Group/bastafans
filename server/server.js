@@ -18,7 +18,7 @@ app.use(cors());
 app.use(express.json());
 
 // Initialize SendGrid
-sgMail.setApiKey(process.env.VITE_SENDGRID_API_KEY);
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // Test endpoint
 app.get('/test', (req, res) => {
@@ -32,8 +32,13 @@ app.post('/send-email', async (req, res) => {
   try {
     const { companyName, fullName, email, gameType, numberOfGames } = req.body;
 
+    // Validate email field
+    if (!email) {
+      throw new Error('Recipient email is required');
+    }
+
     const msg = {
-      to: 'vipulverma123456789@gmail.com',
+      to: email, // Dynamic recipient email from form data
       from: 'contact@nglcert.com', // This must be a verified sender
       subject: 'New Waitlist Registration',
       text: `
@@ -53,7 +58,7 @@ app.post('/send-email', async (req, res) => {
       `,
     };
 
-    console.log('Sending email with SendGrid...');
+    console.log('Sending email with SendGrid to:', email);
     await sgMail.send(msg);
     console.log('Email sent successfully');
     
@@ -70,4 +75,4 @@ app.post('/send-email', async (req, res) => {
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
-}); 
+});

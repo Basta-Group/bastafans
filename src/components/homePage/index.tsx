@@ -6,10 +6,16 @@ import certifyImg1 from "../../assets/certify-img-1.png";
 import certifyImg2 from "../../assets/certify-img-2.png";
 import certifyImg3 from "../../assets/certify-img-3.png";
 import worldMapDotted from "../../assets/world-map-dotted.png";
-import sgMail from "@sendgrid/mail";
-
-// Initialize SendGrid with your API key
-sgMail.setApiKey(import.meta.env.VITE_SENDGRID_API_KEY || "");
+import gridIcon1 from "../../assets/grid-icon-1.png";
+import gridIcon2 from "../../assets/grid-icon-2.png";
+import gridIcon3 from "../../assets/grid-icon-3.png";
+import gridIcon4 from "../../assets/grid-icon-4.png";
+import gridIcon5 from "../../assets/grid-icon-5.png";
+import gridIcon6 from "../../assets/grid-icon-6.png";
+import registerIcon from "../../assets/register.png";
+import uploadIcon from "../../assets/upload.png";
+import testIcon from "../../assets/test.png";
+import verifiedIcon from "../../assets/verified.png";
 
 const Home: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -89,145 +95,43 @@ const Home: React.FC = () => {
   const trustCardsData = [
     {
       icon: (
-        <svg
-          className="w-8 h-8"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M14 3v4a1 1 0 001 1h4"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          <path
-            d="M17 21H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-        </svg>
+        <img src={gridIcon1} alt="ISO Certification" className="w-12 h-16 " />
       ),
       title: "ISO/IEC 17025 & 27001 Certified",
       bgColor: "bg-[#6b9ef4]",
     },
     {
       icon: (
-        <svg
-          className="w-8 h-8"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-9.618 5.04"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M9.541 20.038A9.018 9.018 0 0012 20.972c3.4 0 6.386-1.966 8-5"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        <img
+          src={gridIcon2}
+          alt="Regulator Recognition"
+          className="w-12 h-12"
+        />
       ),
       title: "Recognized by NGA, UKGC, Ontario, and more",
     },
     {
-      icon: (
-        <svg
-          className="w-8 h-8"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      ),
+      icon: <img src={gridIcon3} alt="Remote Testing" className="w-12 h-12" />,
       title: "All testing is fully remote and digital",
     },
     {
       icon: (
-        <svg
-          className="w-8 h-8"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M9 7h6m0 10H9m3-14v18"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        <img src={gridIcon4} alt="Transparent Pricing" className="w-12 h-12" />
       ),
       title: "Transparent pricing with fast-track options",
     },
     {
       icon: (
-        <svg
-          className="w-8 h-8"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect
-            x="3"
-            y="4"
-            width="18"
-            height="18"
-            rx="2"
-            stroke="currentColor"
-            strokeWidth="2"
-          />
-          <path
-            d="M16 2v4M8 2v4"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          <path d="M3 10h18" stroke="currentColor" strokeWidth="2" />
-        </svg>
+        <img
+          src={gridIcon5}
+          alt="Express Certification"
+          className="w-12 h-12"
+        />
       ),
       title: "72-hour express certification available",
     },
     {
-      icon: (
-        <svg
-          className="w-8 h-8"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M22 6l-10 7L2 6"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      ),
+      icon: <img src={gridIcon6} alt="QR Verification" className="w-12 h-12" />,
       title: "Certificates include QR verification & regulator-ready format",
     },
   ];
@@ -238,7 +142,7 @@ const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto p-4 sm:p-6 lg:px-8 rounded-lg   shadow-xl">
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-3/5">
-              <h1 className="text-5xl md:text-5xl font-bold text-black mb-6 leading-tight tracking-wide">
+              <h1 className="text-2xl md:text-5xl font-bold text-black mb-6 leading-tight tracking-wide">
                 GLOBAL GAME CERTIFICATION. ISO ACCREDITED. 100% ONLINE
               </h1>
               <p className="text-lg text-black opacity-60 mb-4">
@@ -255,6 +159,7 @@ const Home: React.FC = () => {
                     .getElementById("contact-form")
                     ?.scrollIntoView({ behavior: "smooth" });
                 }}
+                title="Join the waitlist for game certification"
               >
                 JOIN THE WAITLIST
               </button>
@@ -289,41 +194,44 @@ const Home: React.FC = () => {
       </section>
 
       {/* Four Simple Steps Section */}
-      <section className="py-12 md:py-16 bg-[#F4F5F5]">
+      <section id="about-us" className="py-12 md:py-16 bg-[#F4F5F5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row gap-8 items-center">
             {/* Left Side - Images */}
-            <div className="md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="md:w-1/2 grid grid-cols-2 gap-4">
               <div className="col-span-1">
                 <img
                   src={certifyImg1}
                   alt="People discussion"
-                  className="rounded-lg w-full h-[300px] sm:h-[395px] object-cover"
+                  title="Team discussing game certification"
+                  className="rounded-lg w-full h-[200px] sm:h-[300px] md:h-[395px] object-cover"
                 />
               </div>
               <div className="col-span-1 flex flex-col gap-4">
                 <img
                   src={certifyImg2}
                   alt="Laptop graph"
-                  className="rounded-lg w-full h-[190px] object-cover"
+                  title="Analytics and testing dashboard"
+                  className="rounded-lg w-full h-[95px] sm:h-[145px] md:h-[190px] object-cover"
                 />
                 <img
                   src={certifyImg3}
                   alt="Building view"
-                  className="rounded-lg w-full h-[190px] object-cover"
+                  title="NGL certification headquarters"
+                  className="rounded-lg w-full h-[95px] sm:h-[145px] md:h-[190px] object-cover"
                 />
               </div>
             </div>
 
             {/* Right Side - Text Steps */}
             <div className="md:w-1/2">
-              <h2 className="text-5xl md:text-5xl font-bold text-black mb-8 leading-tight tracking-wide">
+              <h2 className="text-2xl md:text-5xl md:text-2xl md:text-5xl font-bold text-black mb-8 leading-tight tracking-wide">
                 CERTIFY YOUR GAMES
                 <br />
                 IN 4 SIMPLE STEPS
               </h2>
 
-              <div className="space-y-6">
+              <div className="space-y-2">
                 {[
                   {
                     step: "1",
@@ -347,66 +255,38 @@ const Home: React.FC = () => {
                   },
                 ].map(({ step, title, desc }) => (
                   <div className="flex items-start" key={step}>
-                    <div className="rounded-full bg-[#6b9df4] text-white w-12 h-12 flex items-center justify-center text-sm font-semibold mr-4">
+                    <div className="text-white w-16 h-16 flex items-center justify-center text-sm font-semibold mr-4 min-w-[38px]">
                       {step === "1" && (
-                        <svg
-                          className="w-6 h-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                          />
-                        </svg>
+                        <img
+                          src={registerIcon}
+                          alt="Register"
+                          title="Register for game certification"
+                          className="w-10 h-10"
+                        />
                       )}
                       {step === "2" && (
-                        <svg
-                          className="w-6 h-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
-                          />
-                        </svg>
+                        <img
+                          src={uploadIcon}
+                          alt="Upload"
+                          title="Upload your game files"
+                          className="w-10 h-10"
+                        />
                       )}
                       {step === "3" && (
-                        <svg
-                          className="w-6 h-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                          />
-                        </svg>
+                        <img
+                          src={testIcon}
+                          alt="Test"
+                          title="Game testing process"
+                          className="w-10 h-10"
+                        />
                       )}
                       {step === "4" && (
-                        <svg
-                          className="w-6 h-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-                          />
-                        </svg>
+                        <img
+                          src={verifiedIcon}
+                          alt="Verified"
+                          title="Get your game certified"
+                          className="w-10 h-10"
+                        />
                       )}
                     </div>
                     <div>
@@ -426,7 +306,7 @@ const Home: React.FC = () => {
       {/* Why Studios Trust NGL Section */}
       <section className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-5xl md:text-5xl font-bold text-black mb-8 leading-tight tracking-wide text-center">
+          <h2 className="text-2xl md:text-5xl md:text-2xl md:text-5xl font-bold text-black mb-8 leading-tight tracking-wide text-center">
             WHY STUDIOS & PLATFORMS <br /> TRUST NGL
           </h2>
 
@@ -440,7 +320,7 @@ const Home: React.FC = () => {
           <div className="flex flex-col lg:flex-row gap-12">
             {/* Left Side - 30% */}
             <div className="w-full lg:w-[30%]">
-              <h2 className="text-5xl md:text-5xl font-bold text-black mb-6 leading-tight tracking-wide">
+              <h2 className="text-2xl md:text-5xl md:text-2xl md:text-5xl font-bold text-black mb-6 leading-tight tracking-wide">
                 SIMPLE <br className="sm:hidden" />
                 PRICING. NO <br className="sm:hidden" />
                 HIDDEN FEES.
@@ -482,11 +362,11 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-12 md:py-16 bg-white">
+      <section id="contact-form" className="py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-lg shadow-xl">
           <div className="flex flex-col md:flex-row gap-8 items-center">
             {/* Left - Contact Form */}
-            <div id="contact-form" className="md:w-1/3 w-full">
+            <div className="md:w-1/3 w-full">
               <div className="bg-[#a3c2f8] p-6 md:p-8 rounded-2xl shadow-md">
                 <h3 className="text-2xl font-bold text-center mb-6 text-black">
                   Contact NGL
@@ -551,6 +431,11 @@ const Home: React.FC = () => {
                   <button
                     type="submit"
                     disabled={formStatus.submitting}
+                    title={
+                      formStatus.submitting
+                        ? "Submitting form..."
+                        : "Submit your waitlist application"
+                    }
                     className={`w-full bg-[#3147C3] text-white rounded-full py-3 font-semibold hover:from-blue-600 hover:to-blue-800 transition duration-300 ${
                       formStatus.submitting
                         ? "opacity-50 cursor-not-allowed"
@@ -567,7 +452,7 @@ const Home: React.FC = () => {
 
             {/* Right - Text + Image */}
             <div className="md:w-2/3 w-full">
-              <h2 className="text-5xl md:text-5xl text-center font-bold text-black mb-8 leading-tight tracking-wide">
+              <h2 className="text-2xl md:text-5xl md:text-2xl md:text-5xl text-center font-bold text-black mb-8 leading-tight tracking-wide">
                 GET EARLY ACCESS – JOIN <br />
                 THE WAITLIST
               </h2>
@@ -591,7 +476,7 @@ const Home: React.FC = () => {
       {/* Testimonials Section */}
       <section className="py-12 md:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-0">
-          <h2 className="text-5xl md:text-5xl font-bold text-black mb-8 leading-tight tracking-wide text-center">
+          <h2 className="text-2xl md:text-5xl md:text-2xl md:text-5xl font-bold text-black mb-8 leading-tight tracking-wide text-center">
             WHAT OUR CUSTOMER SAID ABOUT US
           </h2>
           <TestimonialsSlider />

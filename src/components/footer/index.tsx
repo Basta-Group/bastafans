@@ -2,8 +2,8 @@ import nglLogo from "../../assets/ngl-logo.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#F4F5F5] py-6">
-      <div className="max-w-7xl mx-auto px-2">
+    <footer className="bg-[#F4F5F5] py-6" role="contentinfo">
+      <div id="contact-us" className="max-w-7xl mx-auto px-2">
         <div className="flex flex-col">
           {/* Main Content */}
           <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-6">
@@ -13,7 +13,9 @@ export default function Footer() {
                 <img
                   src={nglLogo}
                   alt="NGL Logo"
-                  className="h-[100px] w-[110px] mr-2 filter brightness-0 object-cover"
+                  className="h-[100px] w-[115px] mr-2 filter brightness-0 object-cover"
+                  role="img"
+                  aria-label="NGL Certification Logo"
                 />
               </div>
               <p className="text-sm text-black mb-1">
@@ -22,14 +24,18 @@ export default function Footer() {
                 <a
                   href="mailto:contact@nglcert.com"
                   className="opacity-60 hover:opacity-100"
+                  aria-label="Send email to contact@nglcert.com"
                 >
                   contact@nglcert.com
                 </a>
               </p>
               <p className="text-sm text-black mb-4">
-                <strong> Offices: </strong>{" "}
-                <span className="opacity-60">
-                  Malta (HQ.) | Serbia (Lab) | India (Tech){" "}
+                <strong> Offices: </strong>
+                <span
+                  className="opacity-60"
+                  aria-label="Company offices in Malta, Serbia, and India"
+                >
+                  Malta (HQ.) | Serbia (Lab) | India (Tech)
                 </span>
               </p>
             </div>
@@ -84,6 +90,7 @@ export default function Footer() {
               <a
                 href="#"
                 className="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700"
+                title="Visit our Facebook page"
               >
                 <svg
                   className="h-5 w-5"
@@ -101,6 +108,7 @@ export default function Footer() {
               <a
                 href="#"
                 className="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700"
+                title="Visit our Twitter page"
               >
                 <svg
                   className="h-5 w-5"
@@ -114,6 +122,7 @@ export default function Footer() {
               <a
                 href="#"
                 className="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700"
+                title="Visit our Instagram page"
               >
                 <svg
                   className="h-5 w-5"
@@ -141,9 +150,11 @@ export default function Footer() {
                   <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
                 </svg>
               </a>
+
               <a
                 href="#"
                 className="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700"
+                title="Visit our Telegram channel"
               >
                 <svg
                   className="h-5 w-5"
@@ -151,7 +162,7 @@ export default function Footer() {
                   viewBox="0 0 24 24"
                   aria-hidden="true"
                 >
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 16.5v-5.3l5 2.6-5 2.7zm6-9.2L11.5 12V6.5l5.5 2.8z" />
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.95 1.24-5.54 3.65-.52.36-.99.53-1.41.52-.46-.01-1.35-.26-2.01-.48-.81-.27-1.46-.42-1.4-.88.03-.25.38-.51 1.05-.78 4.12-1.79 6.87-2.97 8.26-3.54 3.93-1.6 4.75-1.88 5.27-1.88.11 0 .36.03.52.18.14.14.18.33.2.58z" />
                 </svg>
               </a>
             </div>
