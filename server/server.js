@@ -8,8 +8,8 @@ import { dirname } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-dotenv.config();
-
+dotenv.config({ path: `${__dirname}/.env` });
+console.log('SendGrid API Key:', process.env.SENDGRID_API_KEY);
 const app = express();
 const port = 3001;
 
@@ -18,6 +18,8 @@ app.use(cors());
 app.use(express.json());
 
 // Initialize SendGrid
+
+process.env.SENDGRID_API_KEY
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // Test endpoint
