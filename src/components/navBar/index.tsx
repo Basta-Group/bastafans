@@ -1,38 +1,14 @@
-import { useState, useEffect, useRef } from "react";
-import nglLogo from "../../assets/ngl-logo.png";
+import { useState, useEffect } from "react";
+import bastaLogo from "../../assets/basta-play-logo.png";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const aboutUsRef = useRef<HTMLElement | null>(null);
-  const contactUsRef = useRef<HTMLElement | null>(null);
-  const portalRef = useRef<HTMLElement | null>(null);
-
-  useEffect(() => {
-    // Initialize refs after component mounts
-    aboutUsRef.current = document.getElementById("about-us");
-    contactUsRef.current = document.getElementById("contact-us");
-    portalRef.current = document.getElementById("contact-form");
-  }, []);
-
-  const scrollToSection = (ref: React.RefObject<HTMLElement | null>) => {
-    if (ref.current) {
-      ref.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    ref: React.RefObject<HTMLElement | null>
-  ) => {
-    e.preventDefault();
-    scrollToSection(ref);
-  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Prevent body scrolling when menu is open
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -45,91 +21,58 @@ export default function Navbar() {
   }, [isMenuOpen]);
 
   return (
-    <nav
-      className="bg-[#3147C3] text-white fixed w-full z-50"
-      role="navigation"
-      aria-label="Main navigation"
-    >
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="relative flex items-center justify-between h-16">
+    <nav className="bg-[#0B0B13] fixed w-full z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <div className="flex items-center">
-              <div className="h-[100px] w-[115px] relative">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <img
-                    src={nglLogo}
-                    alt="NGL Logo"
-                    className="h-full w-full object-cover"
-                    role="img"
-                    aria-label="NGL Certification Logo"
-                  />
-                </div>
-              </div>
+            <Link to="/">
+              <img className="h-8" src={bastaLogo} alt="BastaPLAY Logo" />
+            </Link>
+          </div>
+
+          {/* Desktop Navigation - Centered */}
+          <div className="hidden md:flex items-center justify-center flex-1">
+            <div className="flex space-x-8">
+              <Link
+                to="/games"
+                className="text-white hover:text-blue-400 px-3 py-2 text-sm font-medium"
+              >
+                Games
+              </Link>
+              <Link
+                to="/about"
+                className="text-white hover:text-blue-400 px-3 py-2 text-sm font-medium"
+              >
+                About
+              </Link>
+              <Link
+                to="/contact"
+                className="text-white hover:text-blue-400 px-3 py-2 text-sm font-medium"
+              >
+                Contact Us
+              </Link>
             </div>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex md:items-center md:justify-center md:flex-1">
-            <div className="flex items-center space-x-12" role="menubar">
-              <a
-                href="/"
-                className="font-medium hover:text-gray-200"
-                role="menuitem"
-                aria-label="Home page"
-              >
-                HOME
-              </a>
-              <a
-                href="#about-us"
-                className="font-medium hover:text-gray-200"
-                role="menuitem"
-                aria-label="About us page"
-                onClick={(e) => handleNavClick(e, aboutUsRef)}
-              >
-                ABOUT US
-              </a>
-              <a
-                href="#contact-us"
-                className="font-medium hover:text-gray-200"
-                role="menuitem"
-                aria-label="Contact page"
-                onClick={(e) => handleNavClick(e, contactUsRef)}
-              >
-                CONTACT
-              </a>
-              <a
-                href="#contact-form"
-                className="font-medium hover:text-gray-200"
-                role="menuitem"
-                aria-label="Portal page"
-                onClick={(e) => handleNavClick(e, portalRef)}
-              >
-                PORTAL
-              </a>
-            </div>
+          {/* Login Button */}
+          <div className="hidden md:block">
+            <a
+              href="#"
+              onClick={(e) => e.preventDefault()}
+              className="bg-[#3B82F6] text-white px-4 py-2 rounded-3xl text-sm font-medium hover:bg-blue-700 "
+            >
+              LOG IN
+            </a>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-              title={
-                isMenuOpen ? "Close navigation menu" : "Open navigation menu"
-              }
-              aria-expanded={isMenuOpen}
-              aria-controls="mobile-menu"
-              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  setIsMenuOpen(!isMenuOpen);
-                }
-              }}
+              onClick={toggleMenu}
+              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-blue-400 focus:outline-none"
             >
-              <span className="sr-only">
-                {isMenuOpen ? "Close menu" : "Open menu"}
-              </span>
+              <span className="sr-only">Open main menu</span>
               {!isMenuOpen ? (
                 <svg
                   className="block h-6 w-6"
@@ -137,12 +80,11 @@ export default function Navbar() {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth="2"
+                    strokeWidth={2}
                     d="M4 6h16M4 12h16M4 18h16"
                   />
                 </svg>
@@ -153,12 +95,11 @@ export default function Navbar() {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth="2"
+                    strokeWidth={2}
                     d="M6 18L18 6M6 6l12 12"
                   />
                 </svg>
@@ -169,106 +110,34 @@ export default function Navbar() {
       </div>
 
       {/* Mobile menu */}
-      <div
-        className={`fixed inset-y-0 right-0 w-64 bg-blue-600 transform transition-transform duration-300 ease-in-out z-50 ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-        id="mobile-menu"
-        role="menu"
-        aria-label="Mobile navigation menu"
-      >
-        <div className="flex flex-col h-full">
-          <div className="flex justify-end p-4">
-            <button
-              onClick={toggleMenu}
-              className="text-white hover:text-gray-200"
-              aria-label="Close menu"
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  toggleMenu();
-                }
-              }}
-            >
-              <svg
-                className="h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          </div>
-          <div className="flex flex-col space-y-4 px-4" role="menubar">
-            <a
-              href="/"
-              className="text-white hover:text-gray-200 text-lg font-medium"
-              role="menuitem"
-              aria-label="Home page"
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  // Add navigation logic here
-                }
-              }}
-            >
-              HOME
-            </a>
-            <a
-              href="#about-us"
-              className="text-white hover:text-gray-200 text-lg font-medium"
-              role="menuitem"
-              aria-label="About us page"
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  // Add navigation logic here
-                }
-              }}
-            >
-              ABOUT US
-            </a>
-            <a
-              href="#contact-us"
-              className="text-white hover:text-gray-200 text-lg font-medium"
-              role="menuitem"
-              aria-label="Contact page"
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  // Add navigation logic here
-                }
-              }}
-            >
-              CONTACT
-            </a>
-            <a
-              href="/portal"
-              className="text-white hover:text-gray-200 text-lg font-medium"
-              role="menuitem"
-              aria-label="Portal page"
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  // Add navigation logic here
-                }
-              }}
-            >
-              PORTAL
-            </a>
-          </div>
+      <div className={`${isMenuOpen ? "block" : "hidden"} md:hidden`}>
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-[#0B0B13]">
+          <Link
+            to="/games"
+            className="text-white hover:text-blue-400 block px-3 py-2 text-base font-medium"
+          >
+            Games
+          </Link>
+          <Link
+            to="/about"
+            className="text-white hover:text-blue-400 block px-3 py-2 text-base font-medium"
+          >
+            About
+          </Link>
+          <Link
+            to="/contact"
+            className="text-white hover:text-blue-400 block px-3 py-2 text-base font-medium"
+          >
+            Contact Us
+          </Link>
+          <a
+            href="/login"
+            className="bg-[#3B82F6] text-white block px-3 py-2 rounded text-base font-medium hover:bg-blue-700"
+          >
+            LOG IN
+          </a>
         </div>
       </div>
-
-      {/* Overlay */}
-      {isMenuOpen && (
-        <div
-          className="fixed inset-0 backdrop-blur-sm bg-white/30 z-40"
-          onClick={toggleMenu}
-        />
-      )}
     </nav>
   );
 }
