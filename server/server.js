@@ -32,7 +32,7 @@ app.post('/send-email', async (req, res) => {
   console.log('Received email request:', req.body);
   
   try {
-    const { companyName, fullName, email, gameType, numberOfGames } = req.body;
+    const { name, email, phone, gameType, message } = req.body;
 
     // Validate email field
     if (!email) {
@@ -41,13 +41,13 @@ app.post('/send-email', async (req, res) => {
     const msg = {
       to: email, // Dynamic recipient email from form data
       from: 'contact@nglcert.com', // This must be a verified sender
-      subject: 'New Waitlist Registration',
+      subject: 'New Contact Form Submission',
       text: `
-        Company Name: ${companyName}
-        Full Name: ${fullName}
+        Name: ${name}
         Email: ${email}
+        Phone: ${phone}
         Game Type: ${gameType}
-        Number of Games: ${numberOfGames}
+        Message: ${message}
       `,
       html: `
         <!DOCTYPE html>
@@ -63,12 +63,12 @@ app.post('/send-email', async (req, res) => {
         </head>
         <body>
           <div class="container">
-            <h3>New Waitlist Registration</h3>
-            <p><span class="label">Company Name:</span> ${companyName}</p>
-            <p><span class="label">Full Name:</span> ${fullName}</p>
+            <h3>New Contact Form Submission</h3>
+            <p><span class="label">Name:</span> ${name}</p>
             <p><span class="label">Email:</span> ${email}</p>
+            <p><span class="label">Phone:</span> ${phone}</p>
             <p><span class="label">Game Type:</span> ${gameType}</p>
-            <p><span class="label">Number of Games:</span> ${numberOfGames}</p>
+            <p><span class="label">Message:</span> ${message}</p>
           </div>
         </body>
         </html>
