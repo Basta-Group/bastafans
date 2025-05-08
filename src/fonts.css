@@ -7,7 +7,7 @@
 /* Guardian Sans font faces */
 @font-face {
   font-family: 'Guardian Sans';
-  src: url('/assets/fonts/GuardianSans-Regular.woff') format('woff');
+  src: url('/fonts/GuardianSans-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -15,7 +15,7 @@
 
 @font-face {
   font-family: 'Guardian Sans';
-  src: url('/assets/fonts/GuardianSans-Bold.woff') format('woff');
+  src: url('/fonts/GuardianSans-Bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -23,7 +23,7 @@
 
 @font-face {
   font-family: 'Guardian Sans';
-  src: url('/assets/fonts/GuardianSans-Medium.woff') format('woff');
+  src: url('/fonts/GuardianSans-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -31,7 +31,7 @@
 
 @font-face {
   font-family: 'Guardian Sans';
-  src: url('/assets/fonts/GuardianSans-Light.woff') format('woff');
+  src: url('/fonts/GuardianSans-Light.woff') format('woff');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
