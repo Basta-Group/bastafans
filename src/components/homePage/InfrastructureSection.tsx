@@ -1,5 +1,6 @@
 import React from "react";
 import OfficeImage from "../../assets/office-img.png";
+import PDFIcon from "../../assets/PDF_file_icon.svg";
 
 const InfrastructureSection: React.FC = () => {
   return (
@@ -15,7 +16,7 @@ const InfrastructureSection: React.FC = () => {
             {[
               "100% ownership of IP, licenses, and backend",
               "Regulated in 6+ jurisdictions",
-              "Integrated payment, gaming, and AI systems",
+              "Integrated payment, Social networking, and AI systems",
               "Scalable and modular white-label products",
               "Tax-efficient structure (5% Malta corporate)",
             ].map((point, i) => (
@@ -33,11 +34,7 @@ const InfrastructureSection: React.FC = () => {
             href="#"
             className="mt-6 inline-flex items-center gap-2 text-sm font-bold underline"
           >
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg"
-              alt="PDF icon"
-              className="w-4 h-4"
-            />
+            <img src={PDFIcon} alt="PDF icon" className="w-4 h-4" />
             PDF download
           </a>
         </div>

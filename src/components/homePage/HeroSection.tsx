@@ -11,7 +11,7 @@ const HeroSection: React.FC = () => {
           Infinite Possibilities
         </h1>
         <p className="mb-6 text-sm md:text-lg text-white opacity-60">
-          Gaming. Finance. AI. All under one sovereign digital roof.
+          Social networking. Finance. AI. All under one sovereign digital roof.
         </p>
         <div className="flex gap-4 mb-2 text-sm md:text-base">
           <button className="bg-transparent border border-white px-2 md:px-5 py-2 rounded font-semibold">

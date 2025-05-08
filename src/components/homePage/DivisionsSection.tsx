@@ -5,14 +5,13 @@ import divisionCard3 from "../../assets/divisionCards/division-card-3.png";
 
 const divisions = [
   {
-    title: "BASTA GAMING",
+    title: "BASTA Social ",
     image: divisionCard1, // Use imported image
     points: [
-      "8 regional online casinos (Basta USA, Latino, Asia...)",
-      "Basta Play platform & RGS",
-      "NGL (certification lab)",
-      "Basta Arena (live tournaments)",
-      "Basta Coin System (wallet & token)",
+      "A next-generation social networking platform.",
+      "Seamlessly connect, chat, create, and share",
+      "Advanced image/video editing tools, immersive social features and Powerful built-in AI",
+      "Launching soon — get ready to experience social media, redefined",
     ],
   },
   {

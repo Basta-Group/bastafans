@@ -3,7 +3,7 @@ import cors from 'cors';
 import sgMail from '@sendgrid/mail';
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+import { dirname, join } from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -17,17 +17,10 @@ const port = 3001;
 app.use(cors());
 app.use(express.json());
 
-// Initialize SendGrid
+// Serve static files from the dist directory
+app.use(express.static(join(__dirname, '../dist')));
 
-process.env.SENDGRID_API_KEY
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
-// Test endpoint
-app.get('/test', (req, res) => {
-  res.json({ message: 'Server is running!' });
-});
-
-// Email endpoint
+// API Routes
 app.post('/send-email', async (req, res) => {
   console.log('Received email request:', req.body);
   
@@ -87,6 +80,11 @@ app.post('/send-email', async (req, res) => {
       error: error.message 
     });
   }
+});
+
+// Serve index.html for all other routes
+app.get('*', (req, res) => {
+  res.sendFile(join(__dirname, '../dist/index.html'));
 });
 
 app.listen(port, () => {

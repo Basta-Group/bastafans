@@ -1,6 +1,5 @@
 import React from "react";
 import locationIcon from "../../assets/icons/location-icon.png";
-import phoneIcon from "../../assets/icons/phone-calling-icon.png";
 import telegramIcon from "../../assets/icons/telegram-icon.png";
 import twitterIcon from "../../assets/icons/twitter-icon.png";
 import linkdinIcon from "../../assets/icons/linkdin-icon.png";
@@ -57,12 +56,13 @@ const ContactSection: React.FC = () => {
               rel="noopener noreferrer"
               className="uppercase text-white hover:underline"
             >
-              <strong className="opacity-60">HQ:</strong> Sliema, Malta
+              <strong className="opacity-60">HQ:</strong>OFFICE 1 PIAZZETTA
+              BUSINESS PLAZA, TRIQ GHAR IL-LEMBI, SLIEMA, SLM 1560, Malta.
             </a>
           </div>
 
           {/* Phone */}
-          <div className="flex items-center gap-3">
+          {/* <div className="flex items-center gap-3">
             <img src={phoneIcon} alt="Phone Icon" className="w-8 h-8" />
             <a
               href="tel:+356XXXXXXX"
@@ -70,7 +70,7 @@ const ContactSection: React.FC = () => {
             >
               <strong className="opacity-60">Phone:</strong> +356 XXX XXXX
             </a>
-          </div>
+          </div> */}
 
           {/* Social Media */}
           <div className="mt-6">

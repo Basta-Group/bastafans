@@ -12,18 +12,18 @@ const DigitalEmpireSection: React.FC = () => {
             <img
               src={DEmpire1}
               alt="Building"
-              className="rounded-lg w-full h-50 md:h-92 object-cover"
+              className="rounded-lg w-full h-[12.5rem] sm:h-[20.2rem] object-cover"
             />
             <div className="flex flex-col gap-2">
               <img
                 src={DEmpire2}
                 alt="Businessman"
-                className="rounded-lg w-full h-24 md:h-45 object-cover"
+                className="rounded-lg w-full h-24 sm:h-[9.7rem] object-cover"
               />
               <img
                 src={DEmpire3}
                 alt="Meeting"
-                className="rounded-lg w-full h-24 md:h-45 object-cover"
+                className="rounded-lg w-full h-24 sm:h-[9.7rem] object-cover"
               />
             </div>
           </div>
@@ -34,10 +34,10 @@ const DigitalEmpireSection: React.FC = () => {
           </h2>
           <p className="mb-4 text-black opacity-60 text-sm md:text-lg">
             Basta Group is a Malta-based technology group with a global
-            footprint across gaming, financial services, and artificial
-            intelligence. Founded by former Minister of Economy Rade Basta, we
-            are building the most complete, regulated, and scalable digital
-            ecosystem in the world.
+            footprint across Social networking, financial services, and
+            artificial intelligence. Founded by former Minister of Economy Rade
+            Basta, we are building the most complete, regulated, and scalable
+            digital ecosystem in the world.
           </p>
           <div className="mb-2 font-bold">Osnovni podaci:</div>
           <ul className="list-disc list-inside text-sm md:text-lg text-black opacity-60">
@@ -45,7 +45,7 @@ const DigitalEmpireSection: React.FC = () => {
               <b>HQ:</b> Malta
             </li>
             <li>
-              <b>Divisions:</b> Gaming | Finance | AI
+              <b>Divisions:</b> Social networking | Finance | AI
             </li>
             <li>
               <b>Licenses:</b> EMI, MSB, MGA, Vanuatu, Anjouan, UKGC

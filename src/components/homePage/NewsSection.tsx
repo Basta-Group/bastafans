@@ -9,21 +9,8 @@ const NewsSection: React.FC = () => {
       title: "LATEST FROM THE ECOSYSTEM",
       desc1: "Basta AI: Launch Timeline Announced",
       desc2: "Basta Pay Canada now open for Latin American clients",
-      desc3: "Strategic Roadmap 2025–2027 + 5 Casino Launches",
-    },
-    {
-      id: 2,
-      title: "LATEST FROM THE ECOSYSTEM",
-      desc1: "Basta AI: Launch Timeline Announced",
-      desc2: "Basta Pay Canada now open for Latin American clients",
-      desc3: "Strategic Roadmap 2025–2027 + 5 Casino Launches",
-    },
-    {
-      id: 3,
-      title: "LATEST FROM THE ECOSYSTEM",
-      desc1: "Basta AI: Launch Timeline Announced",
-      desc2: "Basta Pay Canada now open for Latin American clients",
-      desc3: "Strategic Roadmap 2025–2027 + 5 Casino Launches",
+      desc3:
+        "Strategic Roadmap 2025–2027 + Launching very soon - Basta Social will be available on both Android and iOS!",
     },
   ];
 
@@ -39,20 +26,7 @@ const NewsSection: React.FC = () => {
               alt="Main News"
               className="w-full rounded-xl object-cover h-[320px]"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6 rounded-b-xl">
-              <h3 className="text-sm font-semibold mb-1 custom-font">
-                LATEST FROM THE ECOSYSTEM
-              </h3>
-              <p className="text-sm custom-font">
-                Basta AI: Launch Timeline Announced
-              </p>
-              <p className="text-sm">
-                Basta Pay Canada now open for Latin American clients
-              </p>
-              <p className="text-sm">
-                Strategic Roadmap 2025–2027 + 5 Casino Launches
-              </p>
-            </div>
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6 rounded-b-xl"></div>
           </div>
 
           {/* Right - News List */}
