@@ -1,143 +1,123 @@
 import { useState, useEffect } from "react";
-import bastaLogo from "../../assets/logos&icons/rade-basta-logo.jpg";
 import { Link } from "react-router-dom";
+import { FiChevronDown } from "react-icons/fi";
+import bastaLogo from "../../assets/logos&icons/basta-group-logo.png";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [showSolutions, setShowSolutions] = useState(false);
+  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
+
+  const handleMouseEnter = () => {
+    if (timeoutId) clearTimeout(timeoutId); // Clear any existing timeout
+    setShowSolutions(true);
   };
 
-  const closeMenu = () => {
-    setIsMenuOpen(false);
+  const handleMouseLeave = () => {
+    const id = setTimeout(() => {
+      setShowSolutions(false);
+    }, 200); // 200ms delay
+    setTimeoutId(id);
   };
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
-      if (currentScrollY > lastScrollY && currentScrollY > 0) {
-        // Scrolling down
-        setIsHidden(true);
-      } else if (currentScrollY < lastScrollY) {
-        // Scrolling up
-        setIsHidden(false);
-      }
-
+      setIsHidden(currentScrollY > lastScrollY && currentScrollY > 0);
       setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
+    document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
   }, [isMenuOpen]);
 
   return (
     <nav
-      className={`bg-black overflow-hidden fixed w-full z-50 transition-transform duration-300 ease-in-out ${
+      className={`bg-white text-[#100404]  fixed w-full z-50 transition-transform duration-300 ease-in-out ${
         isHidden ? "-translate-y-full" : "translate-y-0"
       }`}
-      role="navigation"
-      aria-label="Main navigation"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" aria-label="BastaPlay Home">
-              <img
-                className="h-10"
-                src={bastaLogo}
-                title="Home"
-                alt="BastaPlay Logo"
-              />
+            <Link to="/">
+              <img className="h-10" src={bastaLogo} alt="Basta Group Logo" />
             </Link>
           </div>
 
-          {/* Desktop Navigation - Centered */}
-          <div
-            className="hidden md:flex items-center justify-center flex-1 md:hidden"
-            role="navigation"
-            aria-label="Main menu"
-          >
-            <div className="flex space-x-8">
-              <Link
-                to="/games"
-                className="text-white hover:text-blue-400 px-3 py-2 text-sm font-medium"
-                aria-label="Games page"
-              >
-                Games
-              </Link>
-              <Link
-                to="/detail"
-                className="text-white hover:text-blue-400 px-3 py-2 text-sm font-medium"
-                aria-label="Detail page"
-              >
-                Detail
-              </Link>
-              <Link
-                to="/about"
-                className="text-white hover:text-blue-400 px-3 py-2 text-sm font-medium"
-                aria-label="About page"
-              >
-                About Us
-              </Link>
-              <Link
-                to="/contact"
-                className="text-white hover:text-blue-400 px-3 py-2 text-sm font-medium"
-                aria-label="Contact page"
-              >
-                Contact Us
-              </Link>
+          {/* Desktop Nav */}
+          <div className="hidden lg:flex items-center space-x-6 text-[#100404]">
+            <Link to="/" className="hover:text-black">
+              Home
+            </Link>
+            <Link to="/about" className="hover:text-black">
+              About Us
+            </Link>
+
+            {/* Solutions Dropdown */}
+            <div
+              className="relative group"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <button className="flex items-center gap-1 hover:text-black">
+                Solutions <FiChevronDown />
+              </button>
+              {showSolutions && (
+                <div className="absolute top-full w-48 bg-white text-black rounded shadow-md py-2 z-50">
+                  <Link
+                    to="/service"
+                    className="block px-4 py-2 hover:bg-gray-200"
+                  >
+                    Web Solutions
+                  </Link>
+                  <Link to="/" className="block px-4 py-2 hover:bg-gray-200">
+                    Mobile Solutions
+                  </Link>
+                  <Link to="/" className="block px-4 py-2 hover:bg-gray-200">
+                    Cloud Solutions
+                  </Link>
+                </div>
+              )}
             </div>
+
+            <Link to="/legal" className="hover:text-black">
+              Security & Compliance
+            </Link>
+            <Link to="/" className="hover:text-black">
+              Investor Relations
+            </Link>
+            <Link to="/" className="hover:text-black">
+              News & Media
+            </Link>
+            <Link to="/" className="hover:text-black">
+              Careers
+            </Link>
+            <Link to="/" className="hover:text-black">
+              Contact Us
+            </Link>
           </div>
 
           {/* Mobile menu button */}
-          <div className="hidden">
+          <div className="lg:hidden text-[#100404]">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-blue-400 focus:outline-none"
-              aria-expanded={isMenuOpen}
-              aria-controls="mobile-menu"
-              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              className="p-2 rounded-md focus:outline-none hover:text-black"
+              aria-label="Toggle menu"
             >
-              <span className="sr-only">
-                {isMenuOpen ? "Close main menu" : "Open main menu"}
-              </span>
-              {!isMenuOpen ? (
+              {isMenuOpen ? (
                 <svg
-                  className="block h-6 w-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  className="block h-6 w-6"
-                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -149,62 +129,88 @@ export default function Navbar() {
                     d="M6 18L18 6M6 6l12 12"
                   />
                 </svg>
+              ) : (
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
               )}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu */}
       <div
-        className={`hidden absolute top-16 left-0 right-0 bg-black z-50 transition-all duration-300 ease-in-out transform ${
+        className={`md:hidden absolute top-16 left-0 right-0 bg-white text-[#100404] transition-all duration-300 ${
           isMenuOpen
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-full pointer-events-none"
         }`}
-        id="mobile-menu"
-        style={{
-          boxShadow: isMenuOpen
-            ? "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
-            : "none",
-        }}
       >
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <Link
-            to="/games"
-            className="text-white hover:text-blue-400 block px-3 py-2 text-base font-medium"
-            onClick={closeMenu}
-          >
-            Games
+        <div className="px-4 pt-4 pb-6 space-y-2">
+          <Link to="/" onClick={closeMenu} className="block hover:text-black">
+            Home
           </Link>
-          <Link
-            to="/detail"
-            className="text-white hover:text-blue-400 block px-3 py-2 text-base font-medium"
-            onClick={closeMenu}
-          >
-            Detail
+          <Link to="/" onClick={closeMenu} className="block hover:text-black">
+            About Us
           </Link>
-          <Link
-            to="/about"
-            className="text-white hover:text-blue-400 block px-3 py-2 text-base font-medium"
-            onClick={closeMenu}
-          >
-            About
+
+          {/* Mobile Solutions toggle */}
+          <details className="text-[#100404]">
+            <summary className="cursor-pointer flex items-center justify-between hover:text-black">
+              <span>Solutions</span>
+              <FiChevronDown />
+            </summary>
+            <div className="pl-4 mt-2 space-y-1 text-sm">
+              <Link
+                to="/"
+                onClick={closeMenu}
+                className="block hover:text-black"
+              >
+                Web Solutions
+              </Link>
+              <Link
+                to="/"
+                onClick={closeMenu}
+                className="block hover:text-black"
+              >
+                Mobile Solutions
+              </Link>
+              <Link
+                to="/"
+                onClick={closeMenu}
+                className="block hover:text-black"
+              >
+                Cloud Solutions
+              </Link>
+            </div>
+          </details>
+
+          <Link to="/" onClick={closeMenu} className="block hover:text-black">
+            Security & Compliance
           </Link>
-          <Link
-            to="/contact"
-            className="text-white hover:text-blue-400 block px-3 py-2 text-base font-medium"
-            onClick={closeMenu}
-          >
+          <Link to="/" onClick={closeMenu} className="block hover:text-black">
+            Investor Relations
+          </Link>
+          <Link to="/" onClick={closeMenu} className="block hover:text-black">
+            News & Media
+          </Link>
+          <Link to="/" onClick={closeMenu} className="block hover:text-black">
+            Careers
+          </Link>
+          <Link to="/" onClick={closeMenu} className="block hover:text-black">
             Contact Us
           </Link>
-          <a
-            href="/login"
-            className="bg-[#3B82F6] text-white block px-3 py-2 rounded text-base font-medium hover:bg-blue-700"
-            onClick={closeMenu}
-          >
-            LOG IN
-          </a>
         </div>
       </div>
     </nav>

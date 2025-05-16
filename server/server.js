@@ -3,43 +3,59 @@ import cors from 'cors';
 import sgMail from '@sendgrid/mail';
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
+import { dirname } from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-
 dotenv.config({ path: `${__dirname}/.env` });
 console.log('SendGrid API Key:', process.env.SENDGRID_API_KEY);
+
+// Initialize SendGrid
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
 const app = express();
-const port = 3001;
+const port = process.env.PORT;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3001',
+  methods: ['GET', 'POST'],
+  credentials: true // Must match client-side 'include'
+}));
+
 app.use(express.json());
 
-// Serve static files from the dist directory
-app.use(express.static(join(__dirname, '../dist')));
-
-// API Routes
-app.post('/send-email', async (req, res) => {
-  console.log('Received email request:', req.body);
+// Test endpoint
+app.get('/test', (req, res) => {
+  res.json({ message: 'Server is running!' });
+});
+console.log('Server is running!');
+// Email endpoint
+app.post('/api/send-email', async (req, res) => {
+  console.log('=== Email Request Received ===');
+  console.log('Request Body:', req.body);
   
   try {
-    const { name, email, phone, gameType, message } = req.body;
+    const { name, email, message } = req.body;
+    console.log('Extracted Data:', { name, email, message });
 
-    // Validate email field
-    if (!email) {
-      throw new Error('Recipient email is required');
+    // Validate required fields
+    if (!name || !email || !message) {
+      console.log('Validation Failed: Missing required fields');
+      return res.status(400).json({ 
+        success: false, 
+        message: 'Name, email, and message are required' 
+      });
     }
+    console.log('Validation Passed: All required fields present');
+
     const msg = {
-      to: email, // Dynamic recipient email from form data
-      from: 'contact@nglcert.com', // This must be a verified sender
-      subject: 'New Contact Form Submission',
+      to: email,
+      from: 'contact@nglcert.com', 
+      subject: 'New Contact Form Submission from Basta Group Website',
       text: `
         Name: ${name}
         Email: ${email}
-        Phone: ${phone}
-        Game Type: ${gameType}
         Message: ${message}
       `,
       html: `
@@ -59,32 +75,34 @@ app.post('/send-email', async (req, res) => {
             <h3>New Contact Form Submission</h3>
             <p><span class="label">Name:</span> ${name}</p>
             <p><span class="label">Email:</span> ${email}</p>
-            <p><span class="label">Phone:</span> ${phone}</p>
-            <p><span class="label">Game Type:</span> ${gameType}</p>
             <p><span class="label">Message:</span> ${message}</p>
           </div>
         </body>
         </html>
       `,
     };
-    console.log('Sending email with SendGrid to:', email);
+    console.log('Prepared Email Message:', {
+      to: msg.to,
+      from: msg.from,
+      subject: msg.subject
+    });
+
+    console.log('Attempting to send email...');
     await sgMail.send(msg);
-    console.log('Email sent successfully');
+    console.log('Email sent successfully!');
     
     res.json({ success: true, message: 'Email sent successfully' });
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error('=== Error Sending Email ===');
+    console.error('Error Details:', error);
+    console.error('Error Message:', error.message);
+    console.error('Error Stack:', error.stack);
     res.status(500).json({ 
       success: false, 
       message: 'Failed to send email',
       error: error.message 
     });
   }
-});
-
-// Serve index.html for all other routes
-app.get('*', (req, res) => {
-  res.sendFile(join(__dirname, '../dist/index.html'));
 });
 
 app.listen(port, () => {
