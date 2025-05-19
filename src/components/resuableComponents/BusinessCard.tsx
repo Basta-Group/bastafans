@@ -6,8 +6,10 @@ interface BusinessCardProps {
   quote?: string;
   bulletPoints?: string[];
   subtitle?: string;
+  writer?: string; // New field for writer's name and role
   linkedinUrl?: string;
-  isLightTheme?: boolean; // New prop to control card theme
+  isLightTheme?: boolean;
+  hideTitle?: boolean;
 }
 
 const BusinessCard: React.FC<BusinessCardProps> = ({
@@ -16,8 +18,10 @@ const BusinessCard: React.FC<BusinessCardProps> = ({
   quote,
   bulletPoints,
   subtitle,
+  writer,
   linkedinUrl,
   isLightTheme = false,
+  hideTitle = false,
 }) => {
   const cardBg = isLightTheme ? "bg-[#F3F3F3]" : "bg-[#121317]";
   const textColor = isLightTheme ? "text-black" : "text-white";
@@ -32,7 +36,7 @@ const BusinessCard: React.FC<BusinessCardProps> = ({
     <div
       className={`relative rounded-2xl overflow-hidden transition-transform duration-300 hover:scale-105 ${cardBg} group`}
       role="article"
-      aria-label={`Card for ${title}`}
+      aria-label={`Card for ${hideTitle && subtitle ? subtitle : title}`}
     >
       {/* Image */}
       <div className="relative aspect-[5/4]">
@@ -46,17 +50,30 @@ const BusinessCard: React.FC<BusinessCardProps> = ({
 
       {/* Content */}
       <div className={`py-4 px-4 ${textColor}`}>
-        <h3 className="text-xl font-bold mb-1" role="heading" aria-level={3}>
-          {title}
-        </h3>
+        {/* Conditionally render title */}
+        {!hideTitle && (
+          <h3 className="text-xl font-bold mb-1" role="heading" aria-level={3}>
+            {title}
+          </h3>
+        )}
 
         {/* Render subtitle for Team/Professionals section */}
         {subtitle && (
           <p
-            className={`text-xs ${secondaryTextColorSubtitle} mb-3`}
+            className={`text-sm ${secondaryTextColorSubtitle} mb-2`}
             role="text"
           >
             {subtitle}
+          </p>
+        )}
+
+        {/* Render writer below subtitle */}
+        {writer && (
+          <p
+            className={`text-xs ${secondaryTextColorSubtitle} mb-3`}
+            role="text"
+          >
+            {writer}
           </p>
         )}
 

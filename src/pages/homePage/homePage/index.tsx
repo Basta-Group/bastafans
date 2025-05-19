@@ -10,14 +10,14 @@ import ContactSection from "../../../components/homePage/ContactSection";
 
 const Home: React.FC = () => {
   return (
-    <div className="min-h-screen bg-black overflow-x-hidden">
+    <div className="min-h-screen bg-black overflow-x-hidden md:pt-[64px]">
       <HeroSection />
       <DigitalEmpireSection />
       <DivisionsSection />
       <InfrastructureSection />
       <NewsSection />
       <JoinMovementSection />
-      <ContactSection />
+      <ContactSection theme="dark" />
     </div>
   );
 };

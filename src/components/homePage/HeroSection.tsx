@@ -3,7 +3,7 @@ import RadeBastaImg from "../../assets/rade-basta-img.png";
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="bg-black max-w-7xl mx-auto text-white flex flex-col-reverse md:flex-row items-center justify-between py-12 px-6  gap-2  mt-5">
+    <section className="bg-black max-w-7xl mx-auto text-white flex flex-col-reverse md:flex-row items-center justify-between py-12 px-6  gap-2  mt-5 ">
       <div className="flex-1 flex flex-col justify-center items-start mt-3">
         <h1 className="text-3xl lg:text-5xl xl:text-6xl mb-4">
           One Ecosystem.
@@ -29,7 +29,7 @@ const HeroSection: React.FC = () => {
         <img
           src={RadeBastaImg}
           alt="Rade Basta"
-          className="rounded-xl md:w-120 md:h-120 object-contain"
+          className="rounded-xl md:w-[450px] h-auto object-cover"
         />
       </div>
     </section>

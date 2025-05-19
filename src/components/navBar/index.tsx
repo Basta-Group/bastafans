@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FiChevronDown } from "react-icons/fi";
 import bastaLogo from "../../assets/logos&icons/basta-group-logo.png";
 
@@ -14,14 +14,14 @@ export default function Navbar() {
   const closeMenu = () => setIsMenuOpen(false);
 
   const handleMouseEnter = () => {
-    if (timeoutId) clearTimeout(timeoutId); // Clear any existing timeout
+    if (timeoutId) clearTimeout(timeoutId);
     setShowSolutions(true);
   };
 
   const handleMouseLeave = () => {
     const id = setTimeout(() => {
       setShowSolutions(false);
-    }, 200); // 200ms delay
+    }, 200);
     setTimeoutId(id);
   };
 
@@ -42,7 +42,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`bg-white text-[#100404]  fixed w-full z-50 transition-transform duration-300 ease-in-out ${
+      className={`bg-white text-[#100404] fixed w-full z-50 transition-transform duration-300 ease-in-out ${
         isHidden ? "-translate-y-full" : "translate-y-0"
       }`}
     >
@@ -57,12 +57,22 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center space-x-6 text-[#100404]">
-            <Link to="/" className="hover:text-black">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "font-semibold text-black" : "hover:text-black"
+              }
+            >
               Home
-            </Link>
-            <Link to="/about" className="hover:text-black">
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                isActive ? "font-semibold text-black" : "hover:text-black"
+              }
+            >
               About Us
-            </Link>
+            </NavLink>
 
             {/* Solutions Dropdown */}
             <div
@@ -81,31 +91,62 @@ export default function Navbar() {
                   >
                     Web Solutions
                   </Link>
-                  <Link to="/" className="block px-4 py-2 hover:bg-gray-200">
+                  <Link
+                    to="/mobile"
+                    className="block px-4 py-2 hover:bg-gray-200"
+                  >
                     Mobile Solutions
                   </Link>
-                  <Link to="/" className="block px-4 py-2 hover:bg-gray-200">
+                  <Link
+                    to="/cloud"
+                    className="block px-4 py-2 hover:bg-gray-200"
+                  >
                     Cloud Solutions
                   </Link>
                 </div>
               )}
             </div>
 
-            <Link to="/legal" className="hover:text-black">
+            <NavLink
+              to="/legal"
+              className={({ isActive }) =>
+                isActive ? "font-semibold text-black" : "hover:text-black"
+              }
+            >
               Security & Compliance
-            </Link>
-            <Link to="/" className="hover:text-black">
+            </NavLink>
+            <NavLink
+              to="/investorRelations"
+              className={({ isActive }) =>
+                isActive ? "font-semibold text-black" : "hover:text-black"
+              }
+            >
               Investor Relations
-            </Link>
-            <Link to="/" className="hover:text-black">
+            </NavLink>
+            <NavLink
+              to="/newsMedia"
+              className={({ isActive }) =>
+                isActive ? "font-semibold text-black" : "hover:text-black"
+              }
+            >
               News & Media
-            </Link>
-            <Link to="/" className="hover:text-black">
+            </NavLink>
+            <NavLink
+              to="/careers"
+              className={({ isActive }) =>
+                isActive ? "font-semibold text-black" : "hover:text-black"
+              }
+            >
               Careers
-            </Link>
-            <Link to="/" className="hover:text-black">
+            </NavLink>
+            <NavLink
+              to="/contactUs"
+              className={({ isActive }) =>
+                isActive ? "font-semibold text-black" : "hover:text-black"
+              }
+            >
               Contact Us
-            </Link>
+            </NavLink>
           </div>
 
           {/* Mobile menu button */}
@@ -161,7 +202,11 @@ export default function Navbar() {
           <Link to="/" onClick={closeMenu} className="block hover:text-black">
             Home
           </Link>
-          <Link to="/" onClick={closeMenu} className="block hover:text-black">
+          <Link
+            to="/about"
+            onClick={closeMenu}
+            className="block hover:text-black"
+          >
             About Us
           </Link>
 
@@ -173,21 +218,21 @@ export default function Navbar() {
             </summary>
             <div className="pl-4 mt-2 space-y-1 text-sm">
               <Link
-                to="/"
+                to="/service"
                 onClick={closeMenu}
                 className="block hover:text-black"
               >
                 Web Solutions
               </Link>
               <Link
-                to="/"
+                to="/mobile"
                 onClick={closeMenu}
                 className="block hover:text-black"
               >
                 Mobile Solutions
               </Link>
               <Link
-                to="/"
+                to="/cloud"
                 onClick={closeMenu}
                 className="block hover:text-black"
               >
@@ -196,19 +241,39 @@ export default function Navbar() {
             </div>
           </details>
 
-          <Link to="/" onClick={closeMenu} className="block hover:text-black">
+          <Link
+            to="/legal"
+            onClick={closeMenu}
+            className="block hover:text-black"
+          >
             Security & Compliance
           </Link>
-          <Link to="/" onClick={closeMenu} className="block hover:text-black">
+          <Link
+            to="/investorRelations"
+            onClick={closeMenu}
+            className="block hover:text-black"
+          >
             Investor Relations
           </Link>
-          <Link to="/" onClick={closeMenu} className="block hover:text-black">
+          <Link
+            to="/newsMedia"
+            onClick={closeMenu}
+            className="block hover:text-black"
+          >
             News & Media
           </Link>
-          <Link to="/" onClick={closeMenu} className="block hover:text-black">
+          <Link
+            to="/careers"
+            onClick={closeMenu}
+            className="block hover:text-black"
+          >
             Careers
           </Link>
-          <Link to="/" onClick={closeMenu} className="block hover:text-black">
+          <Link
+            to="/contactUs"
+            onClick={closeMenu}
+            className="block hover:text-black"
+          >
             Contact Us
           </Link>
         </div>

@@ -13,23 +13,30 @@ interface CardData {
   quote?: string;
   bulletPoints?: string[];
   subtitle?: string;
+  writer?: string;
   linkedinUrl?: string;
 }
 
 interface BusinessCardSectionProps {
   title: string;
   subtitle?: string;
+  subtitle2?: string;
   cards: CardData[];
   useSlider?: boolean;
-  theme?: "light" | "dark"; // New prop to control theme
+  cardsPerRow?: 3 | 4;
+  theme?: "light" | "dark";
+  hideTitle?: boolean;
 }
 
 const BusinessCardSection: React.FC<BusinessCardSectionProps> = ({
   title,
   subtitle,
+  subtitle2,
   cards,
   useSlider = true,
+  cardsPerRow = 3,
   theme = "dark",
+  hideTitle = false,
 }) => {
   const isLightTheme = theme === "light";
 
@@ -64,6 +71,9 @@ const BusinessCardSection: React.FC<BusinessCardSectionProps> = ({
     ],
   };
 
+  // Decide grid column class based on cardsPerRow
+  const gridColsClass = cardsPerRow === 4 ? "md:grid-cols-4" : "md:grid-cols-3";
+
   return (
     <section
       className={`pt-6 pb-16 md:py-16 ${
@@ -73,18 +83,18 @@ const BusinessCardSection: React.FC<BusinessCardSectionProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <div
-          className={`mb-2 md:mb-12 ${
+          className={`mb-2 md:mb-8 ${
             subtitle ? "md:flex justify-between" : ""
           }`}
         >
-          <h2 className="text-3xl lg:text-5xl text-center font-bold">
+          <h2 className="text-3xl lg:text-5xl text-center ">
             <span className={isLightTheme ? "text-black" : "text-white"}>
               {title}
             </span>
           </h2>
           {subtitle && (
             <p
-              className={`text-center mt-2 md:max-w-[550px] ${
+              className={`text-center mt-2 md:max-w-[550px] mx-auto ${
                 isLightTheme ? "text-black" : "text-white"
               }`}
             >
@@ -93,29 +103,49 @@ const BusinessCardSection: React.FC<BusinessCardSectionProps> = ({
           )}
         </div>
 
+        {/* Subtitle2 */}
+        {subtitle2 && (
+          <p
+            className={`text-center mt-2 md:mt-4 md:max-w-[650px] mx-auto ${
+              isLightTheme ? "text-black" : "text-white"
+            }`}
+          >
+            {subtitle2}
+          </p>
+        )}
+
         {/* Cards (with or without Slider) */}
-        <div className="business-slider-container">
+        <div className="business-slider-container mt-8">
           {useSlider ? (
             <Slider {...settings}>
               {cards.map((card, index) => (
                 <div key={index} className="px-3">
-                  <BusinessCard {...card} isLightTheme={isLightTheme} />
+                  <BusinessCard
+                    {...card}
+                    isLightTheme={isLightTheme}
+                    hideTitle={hideTitle}
+                  />
                 </div>
               ))}
             </Slider>
           ) : (
-            <div className=" max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div
+              className={`max-w-6xl mx-auto grid grid-cols-1 ${gridColsClass} gap-6`}
+            >
               {cards.map((card, index) => (
                 <BusinessCard
                   key={index}
                   {...card}
                   isLightTheme={isLightTheme}
+                  hideTitle={hideTitle}
                 />
               ))}
             </div>
           )}
         </div>
       </div>
+
+      {/* Custom Styles */}
       <style>{`
         .business-slider-container .slick-dots {
           bottom: -40px;

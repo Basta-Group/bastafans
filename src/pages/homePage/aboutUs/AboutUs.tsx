@@ -6,6 +6,7 @@ import professionalImage1 from "../../../assets/d-empire-2.png";
 import professionalImage2 from "../../../assets/d-empire-2.png";
 import professionalImage3 from "../../../assets/d-empire-2.png";
 import professionalImage4 from "../../../assets/d-empire-2.png";
+import ContactSection from "../../../components/homePage/ContactSection";
 
 const AboutUs: React.FC = () => {
   const professionalsData = [
@@ -160,6 +161,7 @@ const AboutUs: React.FC = () => {
           theme="dark"
         />
       </section>{" "}
+      <ContactSection theme="light" />
     </div>
   );
 };
