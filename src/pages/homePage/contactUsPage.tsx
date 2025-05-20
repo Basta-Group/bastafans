@@ -151,20 +151,27 @@ const ContactUsPage: React.FC = () => {
             Browse offices by region
           </h2>
 
-          {/* Tabs */}
-          <div className="flex justify-center mb-6 overflow-x-auto">
-            <div className="flex space-x-4">
+          {/* Responsive Tabs */}
+          <div className="my-6 overflow-x-auto">
+            <div className="flex justify-center space-x-1 sm:space-x-2 md:space-x-4 min-w-max">
               {tabNames.map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`px-4 py-2 font-medium ${
+                  className={`px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 text-sm sm:text-base font-medium ${
                     activeTab === tab
                       ? "border-b-2 border-black text-black"
                       : "text-gray-500 hover:text-black"
-                  } transition-colors duration-200`}
+                  } transition-colors duration-200 whitespace-nowrap`}
                 >
-                  {tab}
+                  {tab.split(" ").length > 2
+                    ? tab
+                        .split(" ")
+                        .map((word) => word[0])
+                        .join("")
+                    : tab === "The Middle East"
+                    ? "Middle East"
+                    : tab}
                 </button>
               ))}
             </div>
@@ -176,10 +183,12 @@ const ContactUsPage: React.FC = () => {
             {activeRegion && activeRegion.offices.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                 {activeRegion.offices.map((office) => (
-                  <div key={office.city} className="bg-gray-100 p-4 rounded-lg">
+                  <div key={office.city} className="p-4 rounded-lg">
                     <h4 className="text-lg font-semibold">{office.city}</h4>
-                    <p className="text-sm text-gray-700">{office.address}</p>
-                    <p className="text-sm text-gray-700">
+                    <p className="text-sm text-black font-semibold">
+                      {office.address}
+                    </p>
+                    <p className="text-sm text-black font-semibold">
                       Phone: {office.phone}
                     </p>
                   </div>
