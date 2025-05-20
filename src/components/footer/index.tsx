@@ -13,13 +13,13 @@ const Footer: React.FC = () => {
             <h2 className="text-xl font-semibold my-3">Explore more</h2>
             <nav className="flex flex-wrap gap-6 text-sm text-gray-300">
               <Link to="/">Home</Link>
-              <Link to="/">About Us</Link>
-              <Link to="/">Solutions</Link>
-              <Link to="/">Security & Compliance</Link>
-              <Link to="/">Investor Relations</Link>
-              <Link to="/">News & Media</Link>
-              <Link to="/">Careers</Link>
-              <Link to="/">Contact Us</Link>
+              <Link to="/about">About Us</Link>
+              <Link to="/service">Solutions</Link>
+              <Link to="/legal">Security & Compliance</Link>
+              <Link to="/investorRelations">Investor Relations</Link>
+              <Link to="/newsMedia">News & Media</Link>
+              <Link to="/careers">Careers</Link>
+              <Link to="/contactUs">Contact Us</Link>
             </nav>
           </div>
         </div>
@@ -38,7 +38,8 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Legal & compliance */}
-          <div className="flex-1">
+          <div className="flex-1 md:border-l md:border-[rgba(255,255,255,0.3)] md:pl-8">
+            {" "}
             <h4 className="font-semibold mb-2">Legal & Compliance</h4>
             <ul className="text-sm text-gray-400 space-y-1">
               <li>

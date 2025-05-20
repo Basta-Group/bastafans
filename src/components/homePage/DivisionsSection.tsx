@@ -41,7 +41,7 @@ const DivisionsSection: React.FC = () => {
       <h2 className="text-center text-3xl lg:text-5xl xl:text-6xl mb-12">
         DIVISIONS
       </h2>
-      <div className="max-w-7xl mx-auto grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="max-w-6xl mx-auto grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {divisions.map((division, idx) => (
           <div
             key={idx}

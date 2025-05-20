@@ -2,32 +2,35 @@
 import React from "react";
 import TermsImg from "../../../assets/bussiness-info.png";
 import BusinessCardSection from "../../../components/BusinessCardsSection/BusinessCardSection";
-import allianceImage1 from "../../../assets/d-empire-2.png";
-import allianceImage2 from "../../../assets/d-empire-2.png";
-import allianceImage3 from "../../../assets/d-empire-2.png";
-import professionalImage1 from "../../../assets/d-empire-2.png";
-import professionalImage2 from "../../../assets/d-empire-2.png";
-import professionalImage3 from "../../../assets/d-empire-2.png";
-import professionalImage4 from "../../../assets/d-empire-2.png";
+import allianceImage1 from "../../../assets/allianz-card-1.png";
+import allianceImage2 from "../../../assets/allianz-card-2.png";
+import allianceImage3 from "../../../assets/allianz-card-3.png";
+import solImg1 from "../../../assets/solutions-card-1.png";
+import solImg2 from "../../../assets/solutions-card-2.png";
+import solImg3 from "../../../assets/solutions-card-3.png";
+import professionalImage1 from "../../../assets/l-card-1.png";
+import professionalImage2 from "../../../assets/l-card-2.png";
+import professionalImage3 from "../../../assets/l-card-3.png";
+import professionalImage4 from "../../../assets/l-card-4.png";
 import radeBasta from "../../../assets/rade-basta-img.png";
 
 const ServicePage: React.FC = () => {
   const solutionsData = [
     {
       title: "David - Risk & Regulation",
-      image: allianceImage1,
+      image: solImg1,
       quote:
         "I came from traditional banking, Basta showed me what real impact looks like.",
     },
     {
       title: "David - Risk & Regulation",
-      image: allianceImage2,
+      image: solImg2,
       quote:
         "I came from traditional banking, Basta showed me what real impact looks like.",
     },
     {
       title: "David - Risk & Regulation",
-      image: allianceImage3,
+      image: solImg3,
       quote:
         "I came from traditional banking, Basta showed me what real impact looks like.",
     },
@@ -81,7 +84,7 @@ const ServicePage: React.FC = () => {
   return (
     <div className="min-h-screen bg-black overflow-x-hidden md:pt-[64px]">
       {/* HeroSection */}
-      <section className="bg-black max-w-7xl mx-auto text-white flex flex-col-reverse md:flex-row items-center justify-between py-12 px-2 gap-2 mt-5">
+      <section className="bg-black max-w-7xl mx-auto text-white flex flex-col-reverse md:flex-row items-center justify-between py-12 px-2 gap-3 mt-5">
         <div className="flex-1 flex flex-col justify-center items-start mt-3">
           <h2 className="text-3xl lg:text-5xl xl:text-6xl mb-4">
             Business Information{" "}

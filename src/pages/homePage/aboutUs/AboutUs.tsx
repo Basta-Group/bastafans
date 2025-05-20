@@ -2,10 +2,16 @@ import React from "react";
 import OfficeInterior from "../../../assets/office.png";
 import RadeBastaImage from "../../../assets/rade-basta-img.png";
 import BusinessCardSection from "../../../components/BusinessCardsSection/BusinessCardSection";
-import professionalImage1 from "../../../assets/d-empire-2.png";
-import professionalImage2 from "../../../assets/d-empire-2.png";
-import professionalImage3 from "../../../assets/d-empire-2.png";
-import professionalImage4 from "../../../assets/d-empire-2.png";
+import professionalImage1 from "../../../assets/l-card-1.png";
+import professionalImage2 from "../../../assets/l-card-2.png";
+import professionalImage3 from "../../../assets/l-card-3.png";
+import professionalImage4 from "../../../assets/l-card-4.png";
+import corePrinciplesImg1 from "../../../assets/core-pri-1.png";
+import corePrinciplesImg2 from "../../../assets/core-pri-2.png";
+import corePrinciplesImg3 from "../../../assets/core-pri-3.png";
+import makediffImg1 from "../../../assets/make-diff-1.png";
+import makediffImg2 from "../../../assets/make-diff-2.png";
+import makediffImg3 from "../../../assets/make-diff-3.png";
 import ContactSection from "../../../components/homePage/ContactSection";
 
 const AboutUs: React.FC = () => {
@@ -38,19 +44,19 @@ const AboutUs: React.FC = () => {
   const corePrinciplesData = [
     {
       title: "ADD VALUE TO OTHERS",
-      image: professionalImage1,
+      image: corePrinciplesImg1,
       subtitle:
         "Adding value to others entails valuing them first as an individual. Next, we listen, understand, and meet their needs to build a trusted and productive relationship.",
     },
     {
       title: "MAKE TOMORROW BETTER",
-      image: professionalImage2,
+      image: corePrinciplesImg2,
       subtitle:
         "Adding value to others entails valuing them first as customers and partners. Next, we listen to their needs to build a trusted and productive relationship first to build a better tomorrow.",
     },
     {
       title: "SELL RESULTS NOT TIME",
-      image: professionalImage3,
+      image: corePrinciplesImg3,
       subtitle:
         "Our customer satisfaction is our top priority, so we ensure value and solutions. We don’t sell our clients a timeline; we provide them with a service that ensures their success.",
     },
@@ -58,19 +64,19 @@ const AboutUs: React.FC = () => {
   const differenceData = [
     {
       title: "OUR EXPERIENCE",
-      image: professionalImage1,
+      image: makediffImg1,
       subtitle:
         "We’re driven to share our passion by helping others achieve success in their business endeavors. Our ramp-up process is designed to empower your team and outfit them with the tools they need to succeed. Our 20+ years of industry experience enables us to support your growth, limit your turnover, and put you on a solid track to success and profit.",
     },
     {
       title: "OUR GOAL",
-      image: professionalImage2,
+      image: makediffImg2,
       subtitle:
         "We strive to teach you all of the time and guidance you deserve. We train new business mentors are key to business success. We know when it comes to client selection, it can be very particular. Whether you’re seeking a strategic alliance or a special skill set or tool, we can partner with you to create a refined plan for success.",
     },
     {
       title: "OUR APPROACH",
-      image: professionalImage3,
+      image: makediffImg3,
       subtitle:
         "Our service includes a comprehensive consultation to help identify gaps and opportunities — a comprehensive report that includes a project plan with timelines and milestones, a cost analysis, and a schedule. We also offer a suite of quality products that will help you get there quickly and smoothly to ensure your success.",
     },

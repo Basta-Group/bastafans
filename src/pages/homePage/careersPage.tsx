@@ -1,16 +1,20 @@
 import React from "react";
-import OfficeInterior from "../../assets/office.png";
+import OfficeInterior from "../../assets/careers-bg.png";
+import OfficeInterior2 from "../../assets/careers-bg-2.png";
 import SearchIcon from "../../assets/search-white.png";
 import BusinessCardSection from "../../components/BusinessCardsSection/BusinessCardSection";
 
 // Sample images for cards
-import whatWeDoImage1 from "../../assets/office-img.png";
-import whatWeDoImage2 from "../../assets/office-img.png";
-import whatWeDoImage3 from "../../assets/office-img.png";
-import whatWeDoImage4 from "../../assets/office-img.png";
-import davidImage from "../../assets/office-img.png";
-import aminaImage from "../../assets/office-img.png";
-import carlosImage from "../../assets/office-img.png";
+import whatWeDoImage1 from "../../assets/what-card-1.png";
+import whatWeDoImage2 from "../../assets/what-card-2.png";
+import whatWeDoImage3 from "../../assets/what-card-3.png";
+import whatWeDoImage4 from "../../assets/what-card-4.png";
+import getImage1 from "../../assets/get-card-1.png";
+import getImage2 from "../../assets/get-card-2.png";
+import getImage3 from "../../assets/get-card-3.png";
+import aboutCardImg1 from "../../assets/about-card-1.png";
+import aboutCardImg2 from "../../assets/about-card-2.png";
+import aboutCardImg3 from "../../assets/about-card-3.png";
 
 const CareersPage: React.FC = () => {
   const whatWeDoData = [
@@ -41,21 +45,21 @@ const CareersPage: React.FC = () => {
   ];
   const getToKnowOurPeopleData = [
     {
-      image: whatWeDoImage1,
+      image: getImage1,
       title: "Tech Career at Basta",
       subtitle:
         "What does a tech career at Basta Finance look like? From building wallets to integrating PSPs, our developers lead global solutions.",
       writer: "– Livia, Senior Backend Engineer",
     },
     {
-      image: whatWeDoImage1,
+      image: getImage2,
       title: "Navigating High-Risk Industries",
       subtitle:
         "Navigating high-risk industries without losing integrity: Why I joined Basta",
       writer: "– Rakesh, Compliance Officer",
     },
     {
-      image: whatWeDoImage1,
+      image: getImage3,
       title: "Student to Leadership",
       subtitle:
         "From graduation to leadership: How Basta empowers students from emerging markets",
@@ -64,19 +68,19 @@ const CareersPage: React.FC = () => {
   ];
   const employeeStoriesData = [
     {
-      image: davidImage,
+      image: aboutCardImg1,
       title: "David – Risk & Regulation",
       subtitle:
         "“I came from traditional banking. Basta showed me what real impact looks like.”",
     },
     {
-      image: aminaImage,
+      image: aboutCardImg2,
       title: "Amina – Product Designer",
       subtitle:
         "“Designing for gaming and crypto is fun, intense, and real-time. Every day is a sprint.”",
     },
     {
-      image: carlosImage,
+      image: aboutCardImg3,
       title: "Carlos – LATAM Expansion Lead",
       subtitle:
         "“We're building a financial bridge from LATAM to the world — and I'm proud to lead it.”",
@@ -88,7 +92,7 @@ const CareersPage: React.FC = () => {
       {/* First Fold */}
       <section className="bg-black text-white max-w-7xl mx-auto py-16 px-4 flex flex-col md:flex-row items-center justify-between gap-10 mt-5">
         <div className="flex-1">
-          <h2 className="text-4xl lg:text-5xl font-semibold mb-4">
+          <h2 className=" text-4xl lg:text-5xl mb-4">
             Our smartest investment is you
           </h2>
           <p className="mb-8 text-lg text-white/80">
@@ -151,7 +155,7 @@ const CareersPage: React.FC = () => {
         <div className="max-w-7xl mx-auto text-black flex flex-col md:flex-row items-center justify-between py-12 px-6 gap-8 mt-5">
           <div className="flex-1 flex justify-center items-center">
             <img
-              src={OfficeInterior}
+              src={OfficeInterior2}
               alt="Office Setup"
               className="rounded-xl md:w-[450px] h-auto object-cover"
             />
@@ -209,7 +213,7 @@ const CareersPage: React.FC = () => {
 
       {/* Culture, Benefits, and Career Development Section */}
       <section className="bg-black text-white py-16 px-4">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Our Culture */}
           <div className="bg-[#121317] rounded-xl p-6">
             <h3 className="text-xl font-semibold mb-4">OUR CULTURE</h3>

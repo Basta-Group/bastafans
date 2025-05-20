@@ -1,5 +1,5 @@
 import React from "react";
-import OfficeInterior from "../../assets/office.png";
+import OfficeInterior from "../../assets/news-bg.png";
 import ContactSection from "../../components/homePage/ContactSection";
 import NewsIcon from "../../assets/icons/news-icon.svg";
 

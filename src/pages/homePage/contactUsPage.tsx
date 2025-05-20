@@ -132,9 +132,6 @@ const ContactUsPage: React.FC = () => {
     { name: "Asia-Pacific", offices: [] },
   ];
 
-  // Tab names for rendering
-  const tabNames = regions.map((region) => region.name);
-
   // Find the active region's offices
   const activeRegion = regions.find((region) => region.name === activeTab);
 
@@ -152,26 +149,26 @@ const ContactUsPage: React.FC = () => {
           </h2>
 
           {/* Responsive Tabs */}
-          <div className="my-6 overflow-x-auto">
-            <div className="flex justify-center space-x-1 sm:space-x-2 md:space-x-4 min-w-max">
-              {tabNames.map((tab) => (
+          <div className="my-6 w-full px-4">
+            <div className="flex gap-3 justify-between items-center w-full overflow-x-auto">
+              {[
+                "North America",
+                "South America",
+                "Europe",
+                "The Middle East",
+                "Africa",
+                "Asia-Pacific",
+              ].map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 text-sm sm:text-base font-medium ${
+                  className={`flex-1 py-2 text-sm sm:text-xl  font-medium text-center ${
                     activeTab === tab
                       ? "border-b-2 border-black text-black"
                       : "text-gray-500 hover:text-black"
                   } transition-colors duration-200 whitespace-nowrap`}
                 >
-                  {tab.split(" ").length > 2
-                    ? tab
-                        .split(" ")
-                        .map((word) => word[0])
-                        .join("")
-                    : tab === "The Middle East"
-                    ? "Middle East"
-                    : tab}
+                  {tab === "The Middle East" ? "Middle East" : tab}
                 </button>
               ))}
             </div>
