@@ -106,33 +106,54 @@ const InvestorRelationsPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm font-semibold">
             {/* 2025 Annual Meeting Buttons */}
             <div>
-              <button className="w-full border border-white py-3 px-4 rounded hover:bg-white hover:text-black transition mb-4">
+              <button
+                className="w-full border border-white py-3 px-4 rounded hover:bg-white hover:text-black transition mb-4"
+                title="Watch the annual meeting webcast"
+              >
                 WEBCAST
               </button>
-              <button className="w-full border border-white py-3 px-4 rounded hover:bg-white hover:text-black transition mb-4">
+              <button
+                className="w-full border border-white py-3 px-4 rounded hover:bg-white hover:text-black transition mb-4"
+                title="Submit your questions for the annual meeting"
+              >
                 SHAREHOLDER QUESTION SUBMISSION
               </button>
-              <button className="w-full border border-white py-3 px-4 rounded hover:bg-white hover:text-black transition">
+              <button
+                className="w-full border border-white py-3 px-4 rounded hover:bg-white hover:text-black transition"
+                title="View annual meeting details and information"
+              >
                 ANNUAL MEETING INFORMATION
               </button>
             </div>
 
             {/* Annual Report Buttons */}
             <div>
-              <button className="w-full border border-white py-3 px-4 rounded hover:bg-white hover:text-black transition mb-4">
+              <button
+                className="w-full border border-white py-3 px-4 rounded hover:bg-white hover:text-black transition mb-4"
+                title="Download 2024 Annual Report"
+              >
                 2024 ANNUAL REPORT
               </button>
-              <button className="w-full border border-white py-3 px-4 rounded hover:bg-white hover:text-black transition">
+              <button
+                className="w-full border border-white py-3 px-4 rounded hover:bg-white hover:text-black transition"
+                title="View 2025 Proxy Statement"
+              >
                 2025 PROXY
               </button>
             </div>
 
             {/* Investor Day Buttons */}
             <div>
-              <button className="w-full border border-white py-3 px-4 rounded hover:bg-white hover:text-black transition mb-4">
+              <button
+                className="w-full border border-white py-3 px-4 rounded hover:bg-white hover:text-black transition mb-4"
+                title="View full investor day presentation"
+              >
                 FULL PRESENTATION
               </button>
-              <button className="w-full border border-white py-3 px-4 rounded hover:bg-white hover:text-black transition">
+              <button
+                className="w-full border border-white py-3 px-4 rounded hover:bg-white hover:text-black transition"
+                title="View investor day agenda"
+              >
                 AGENDA
               </button>
             </div>
@@ -150,7 +171,10 @@ const InvestorRelationsPage: React.FC = () => {
             technology, our clients turn to us for the solutions they need when
             planning for their most important goals.
           </p>
-          <button className="border border-black py-3 px-6 rounded hover:bg-black hover:text-white transition font-semibold text-sm">
+          <button
+            className="border border-black py-3 px-6 rounded hover:bg-black hover:text-white transition font-semibold text-sm"
+            title="Learn more about Basta Group"
+          >
             LEARN MORE
           </button>
         </div>
@@ -186,7 +210,10 @@ const InvestorRelationsPage: React.FC = () => {
               </button>
             ))}
           </div>
-          <button className="mt-8 border border-white py-3 px-6 rounded hover:bg-white hover:text-black transition font-semibold text-sm">
+          <button
+            className="mt-8 border border-white py-3 px-6 rounded hover:bg-white hover:text-black transition font-semibold text-sm"
+            title="View all quarters"
+          >
             All Quarters
           </button>
         </div>
@@ -209,7 +236,10 @@ const InvestorRelationsPage: React.FC = () => {
               </div>
             ))}
           </div>
-          <button className="border border-black py-3 px-6 rounded hover:bg-black hover:text-white transition font-semibold text-sm">
+          <button
+            className="border border-black py-3 px-6 rounded hover:bg-black hover:text-white transition font-semibold text-sm"
+            title="View all press releases"
+          >
             ALL RELEASES
           </button>
         </div>
@@ -255,7 +285,10 @@ const InvestorRelationsPage: React.FC = () => {
           <div>
             {" "}
             <h2 className="text-4xl md:text-5xl mb-8">Events</h2>
-            <button className="border border-white py-3 px-6 rounded hover:bg-white hover:text-black transition font-semibold text-sm">
+            <button
+              className="border border-white py-3 px-6 rounded hover:bg-white hover:text-black transition font-semibold text-sm"
+              title="View all upcoming events"
+            >
               All Events
             </button>
           </div>

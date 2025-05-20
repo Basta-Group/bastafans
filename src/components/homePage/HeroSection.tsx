@@ -14,10 +14,16 @@ const HeroSection: React.FC = () => {
           Social networking. Finance. AI. All under one sovereign digital roof.
         </p>
         <div className="flex gap-4 mb-2 text-sm md:text-base">
-          <button className="bg-transparent border border-white px-2 md:px-5 py-2 rounded font-semibold">
+          <button
+            className="bg-transparent border border-white px-2 md:px-5 py-2 rounded font-semibold"
+            title="Explore our divisions"
+          >
             EXPLORE DIVISIONS
           </button>
-          <button className="bg-transparent border border-white px-2 md:px-5 py-2 rounded font-semibold ">
+          <button
+            className="bg-transparent border border-white px-2 md:px-5 py-2 rounded font-semibold"
+            title="View our investor deck"
+          >
             INVESTOR DECK
           </button>
         </div>

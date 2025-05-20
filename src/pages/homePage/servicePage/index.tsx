@@ -92,7 +92,10 @@ const ServicePage: React.FC = () => {
           </h2>
 
           <div className="flex gap-4 mb-2 text-sm md:text-base">
-            <button className="bg-transparent border border-white px-2 md:px-5 py-2 rounded font-semibold">
+            <button
+              className="bg-transparent border border-white px-2 md:px-5 py-2 rounded font-semibold"
+              title="Contact our business solutions team"
+            >
               CONTACT US
             </button>
           </div>
@@ -104,7 +107,8 @@ const ServicePage: React.FC = () => {
         <div className="flex-1 flex justify-center items-center md:mt-0">
           <img
             src={TermsImg}
-            alt="Rade Basta"
+            alt="Business Information Systems"
+            title="Business Information Systems illustration"
             className="rounded-xl md:w-100 md:h-100 object-contain"
           />
         </div>
@@ -169,7 +173,7 @@ const ServicePage: React.FC = () => {
             within the U.S. Federal Government marketplace. With constantly
             changing requirements and client needs, contractors need to ensure
             their information systems and business processes keep pace with
-            today’s challenges and tomorrow’s plans. We specialize in helping
+            today's challenges and tomorrow's plans. We specialize in helping
             GovCon organizations traverse the complexities of the federal
             marketplace and execute transformational projects.
           </p>
@@ -187,7 +191,10 @@ const ServicePage: React.FC = () => {
             integrated and compliant systems.
           </p>
           <div className="flex justify-center gap-4 mb-2 text-sm md:text-base">
-            <button className="bg-transparent border border-black px-2 md:px-5 py-2 rounded font-semibold uppercase">
+            <button
+              className="bg-transparent border border-black px-2 md:px-5 py-2 rounded font-semibold uppercase"
+              title="Learn more about our solutions"
+            >
               Learn More
             </button>
           </div>
@@ -199,7 +206,8 @@ const ServicePage: React.FC = () => {
           <img
             src={radeBasta}
             alt="Rade Basta"
-            className="rounded-xl  md:w-[450px] h-auto object-cover"
+            title="Rade Basta - Founder and CEO"
+            className="rounded-xl md:w-[450px] h-auto object-cover"
           />
         </div>
         <div className="flex-1 text-left md:pl-10 relative">

@@ -103,7 +103,10 @@ const AboutUs: React.FC = () => {
             <li>Streamlining Start-ups</li>
             <li>Driving Efficiency and Communication</li>
           </ul>
-          <button className="bg-transparent border border-white px-5 py-2 rounded font-semibold text-sm md:text-base hover:bg-white hover:text-black transition duration-300">
+          <button
+            className="bg-transparent border border-white px-5 py-2 rounded font-semibold text-sm md:text-base hover:bg-white hover:text-black transition duration-300"
+            title="Contact our team"
+          >
             GET IN TOUCH WITH US
           </button>
         </div>
@@ -111,6 +114,7 @@ const AboutUs: React.FC = () => {
           <img
             src={OfficeInterior}
             alt="Office Environment"
+            title="Our modern office environment"
             className="rounded-xl w-full object-cover"
           />
         </div>

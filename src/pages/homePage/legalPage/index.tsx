@@ -13,7 +13,10 @@ const LegalPage: React.FC = () => {
           </h2>
 
           <div className="flex gap-4 mb-2 text-sm md:text-base">
-            <button className="bg-transparent border border-white px-2 md:px-5 py-2 rounded font-semibold">
+            <button
+              className="bg-transparent border border-white px-2 md:px-5 py-2 rounded font-semibold"
+              title="Contact our media team"
+            >
               MEDIA CONTACTS
             </button>
           </div>
@@ -22,6 +25,7 @@ const LegalPage: React.FC = () => {
           <img
             src={TermsImg}
             alt="Rade Basta"
+            title="Terms of Use illustration"
             className="rounded-xl md:w-120 md:h-120 object-contain"
           />
         </div>

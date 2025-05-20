@@ -56,13 +56,22 @@ const Footer: React.FC = () => {
 
           {/* Social Icons */}
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 flex items-center justify-center bg-[#1A1A1A] rounded-full">
+            <div
+              className="w-10 h-10 flex items-center justify-center bg-[#1A1A1A] rounded-full"
+              title="Follow us on Facebook"
+            >
               <FaFacebookF />
             </div>
-            <div className="w-10 h-10 flex items-center justify-center bg-[#1A1A1A] rounded-full">
+            <div
+              className="w-10 h-10 flex items-center justify-center bg-[#1A1A1A] rounded-full"
+              title="Follow us on Twitter"
+            >
               <FaXTwitter />
             </div>
-            <div className="w-10 h-10 flex items-center justify-center bg-[#1A1A1A] rounded-full">
+            <div
+              className="w-10 h-10 flex items-center justify-center bg-[#1A1A1A] rounded-full"
+              title="Follow us on LinkedIn"
+            >
               <FaLinkedinIn />
             </div>
           </div>

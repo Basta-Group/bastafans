@@ -33,8 +33,14 @@ const InfrastructureSection: React.FC = () => {
           <a
             href="#"
             className="mt-6 inline-flex items-center gap-2 text-sm font-bold underline"
+            title="Download our infrastructure overview"
           >
-            <img src={PDFIcon} alt="PDF icon" className="w-4 h-4" />
+            <img
+              src={PDFIcon}
+              alt="PDF icon"
+              title="PDF document icon"
+              className="w-4 h-4"
+            />
             PDF download
           </a>
         </div>
@@ -44,6 +50,7 @@ const InfrastructureSection: React.FC = () => {
           <img
             src={OfficeImage}
             alt="Office"
+            title="Our modern office infrastructure"
             className="rounded-xl w-full object-cover shadow-md"
           />
         </div>

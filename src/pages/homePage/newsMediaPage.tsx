@@ -7,7 +7,7 @@ import NewsIcon from "../../assets/icons/news-icon.svg";
 const newsItems = [
   {
     type: "ANNOUNCEMENT",
-    title: "Basta Group’s 2025 Chairman's Letter to Investors",
+    title: "Basta Group's 2025 Chairman's Letter to Investors",
     date: "Apr 11, 2025",
   },
   {
@@ -44,7 +44,7 @@ const newsItems = [
   },
   {
     type: "ANNOUNCEMENT",
-    title: "Basta Group’s 2025 Chairman's Letter to Investors",
+    title: "Basta Group's 2025 Chairman's Letter to Investors",
     date: "Apr 11, 2025",
   },
   {
@@ -65,7 +65,7 @@ const NewsMediaPage: React.FC = () => (
     <section className="bg-black max-w-7xl mx-auto text-white flex flex-col-reverse md:flex-row items-center justify-between py-12 px-2 gap-2 mt-5">
       <div className="flex-1 flex flex-col justify-center items-start">
         <h2 className="text-4xl lg:text-5xl text-white mb-4 leading-tight">
-          Basta Group’s Global <br /> Newsroom
+          Basta Group's Global <br /> Newsroom
         </h2>
         <p className="text-white opacity-90 mb-6 text-base md:text-lg max-w-xl">
           Read our latest announcements, statements, press releases, and facts
@@ -92,7 +92,12 @@ const NewsMediaPage: React.FC = () => (
           {newsItems.map((item, index) => (
             <div key={index} className="border-b border-black pb-6">
               <div className="text-xs font-bold text-black flex items-center gap-1 mb-1">
-                <img src={NewsIcon} alt="news icon" className="w-4 h-4" />
+                <img
+                  src={NewsIcon}
+                  alt="news icon"
+                  title="News announcement"
+                  className="w-4 h-4"
+                />
                 {item.type}
               </div>
               <h3 className="font-bold text-lg text-black leading-snug mb-1">
@@ -103,7 +108,10 @@ const NewsMediaPage: React.FC = () => (
           ))}
         </div>
         <div className="flex justify-center mt-10">
-          <button className="border border-black px-6 py-2 text-sm font-medium rounded text-black hover:bg-black hover:text-white transition duration-300">
+          <button
+            className="border border-black px-6 py-2 text-sm font-medium rounded text-black hover:bg-black hover:text-white transition duration-300"
+            title="Load more news articles"
+          >
             LOAD MORE
           </button>
         </div>

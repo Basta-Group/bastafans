@@ -13,14 +13,20 @@ const JoinMovementSection: React.FC = () => {
             Join the Movement
           </h2>
           <p className="mb-6 text-sm md:text-lg text-black opacity-60">
-            We’re building a future-proof digital empire. From AI engineers to
-            game designers and compliance experts, we’re hiring globally.{" "}
+            We're building a future-proof digital empire. From AI engineers to
+            game designers and compliance experts, we're hiring globally.{" "}
           </p>
           <div className="flex gap-4 mb-2 text-black">
-            <button className="bg-transparent border border-black px-2 md:px-5 py-2 rounded font-semibold uppercase">
+            <button
+              className="bg-transparent border border-black px-2 md:px-5 py-2 rounded font-semibold uppercase"
+              title="Apply for a position at Basta Group"
+            >
               Apply Now{" "}
             </button>
-            <button className="bg-transparent border border-black px-2 md:px-5 py-2 rounded font-semibold uppercase">
+            <button
+              className="bg-transparent border border-black px-2 md:px-5 py-2 rounded font-semibold uppercase"
+              title="View all open positions"
+            >
               Open Roles{" "}
             </button>
           </div>
@@ -32,17 +38,20 @@ const JoinMovementSection: React.FC = () => {
             <img
               src={Img1}
               alt="Building 1"
-              className="rounded-xl object-cover w-full  md:h-[180px]"
+              title="Our modern office building"
+              className="rounded-xl object-cover w-full md:h-[180px]"
             />
             <img
               src={Img2}
               alt="Building 2"
+              title="Our collaborative workspace"
               className="rounded-xl object-cover w-full md:h-[180px]"
             />
           </div>
           <img
             src={Img3}
             alt="Building 3"
+            title="Our innovative work environment"
             className="rounded-xl object-cover w-full h-full md:h-full"
           />
         </div>

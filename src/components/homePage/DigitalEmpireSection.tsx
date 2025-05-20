@@ -12,17 +12,20 @@ const DigitalEmpireSection: React.FC = () => {
             <img
               src={DEmpire1}
               alt="Building"
+              title="Our modern office building"
               className="rounded-lg w-full h-[12.5rem] sm:h-[20.2rem] object-cover"
             />
             <div className="flex flex-col gap-2">
               <img
                 src={DEmpire2}
                 alt="Businessman"
+                title="Our professional team member"
                 className="rounded-lg w-full h-24 sm:h-[9.7rem] object-cover"
               />
               <img
                 src={DEmpire3}
                 alt="Meeting"
+                title="Team collaboration meeting"
                 className="rounded-lg w-full h-24 sm:h-[9.7rem] object-cover"
               />
             </div>
