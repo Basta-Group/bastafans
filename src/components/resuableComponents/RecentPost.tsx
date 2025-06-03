@@ -49,8 +49,8 @@ const RecentPost: React.FC<RecentPostProps> = ({ modelImage = "model1" }) => {
             with @ariaretv and @stargirlsetzv. The sultry R&B and smooth rap
             will have you hooked. 🔥🎶
             <br />
-            onlyfans.com/dymezworld / onlyfans.com/ariaetv /
-            onlyfans.com/stargirlsetztv
+            BastaFans.com/dymezworld / BastaFans.com/ariaetv /
+            BastaFans.com/stargirlsetztv
           </div>
         </div>
       </div>

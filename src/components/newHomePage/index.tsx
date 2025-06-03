@@ -49,8 +49,8 @@ const NewHomePage: React.FC = () => {
               What Is Basta Fans?
             </h1>
             <p className="text-lg mb-8 line-height-1">
-              OnlyFans Is A Platform Built For Creators And Fans. More Than 3
-              Million Creators Have Used OnlyFans To Connect With Fans, And To
+              BastaFans Is A Platform Built For Creators And Fans. More Than 3
+              Million Creators Have Used BastaFans To Connect With Fans, And To
               Monetize Their Content Safely, Securely, And On Their Own Terms.
             </p>
             <button className="bg-[#1E90FF] hover:bg-[#187bcd] text-white px-8 py-2 rounded-full font-semibold transition">

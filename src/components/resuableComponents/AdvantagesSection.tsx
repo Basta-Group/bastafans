@@ -15,7 +15,7 @@ const advantages: Advantage[] = [
   {
     icon: OwnershipIcon,
     title: "Creative Ownership",
-    desc: "OnlyFans Creators Own 100% Of Their Content, And Keep 80% Of All Earnings.",
+    desc: "BastaFans Creators Own 100% Of Their Content, And Keep 80% Of All Earnings.",
   },
   {
     icon: InclusivityIcon,
@@ -25,12 +25,12 @@ const advantages: Advantage[] = [
   {
     icon: FreedomIcon,
     title: "Freedom",
-    desc: "OnlyFans Creators Are Free To Express Their Most Authentic Selves Through Their Content.",
+    desc: "BastaFans Creators Are Free To Express Their Most Authentic Selves Through Their Content.",
   },
   {
     icon: SafetyIcon,
     title: "Safety",
-    desc: "OnlyFans Strives To Be The Safest Online Platform. We Use Industry-Leading Internal Controls, And We Will Never Monetize Or Sell Your Data.",
+    desc: "BastaFans Strives To Be The Safest Online Platform. We Use Industry-Leading Internal Controls, And We Will Never Monetize Or Sell Your Data.",
   },
 ];
 

@@ -10,9 +10,9 @@ const WhatIsBastaFans = () => {
     <section className=" text-white py-16 px-4 text-center">
       <h2 className="text-4xl font-bold mb-4">What Is Basta Fans?</h2>
       <p className="max-w-3xl mx-auto text-lg mb-6">
-        OFTV Is A Free On-Demand Video Streaming Platform And App That Hosts
-        Video Content From OnlyFans Creators Of All Genres, Including Fitness,
-        Cooking, Music, Comedy, And Educational. OFTV Also Creates High-Quality
+        BFTV Is A Free On-Demand Video Streaming Platform And App That Hosts
+        Video Content From BastaFans Creators Of All Genres, Including Fitness,
+        Cooking, Music, Comedy, And Educational. BFTV Also Creates High-Quality
         Original Scriptless Programming Including Competition Shows, Reality
         Series, And More.
       </p>

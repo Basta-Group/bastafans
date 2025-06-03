@@ -90,15 +90,15 @@ const HomePage = () => {
             </div>
             <div className="text-[#8A8FA7] text-base mb-1">@basta_fans</div>
             <div className="text-white text-base mb-1">
-              featuring videos by onlyfans creators
+              featuring videos by BastaFans creators
             </div>
             <div className="text-[#8A8FA7] text-sm">
               see more:{" "}
               <a
-                href="https://bastafans.com/oftv"
+                href="https://bastafans.com/bftv"
                 className="text-[#00CFFF] no-underline"
               >
-                bastafans.com/oftv
+                bastafans.com/bftv
               </a>
             </div>
           </div>

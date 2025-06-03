@@ -3,17 +3,17 @@ import faq1 from "../../assets/faq.png";
 
 const faqs = [
   {
-    question: "How Do I Start Earning On OnlyFans?",
+    question: "How Do I Start Earning On BastaFans?",
     answer:
-      "After Creating An OnlyFans Account, You’ll Need To Upload Your Identification And Banking Information For Review. Once Your Identity Has Been Verified, You Can Begin Creating Paid Content And Promote Your Profile.",
+      "After Creating An BastaFans Account, You’ll Need To Upload Your Identification And Banking Information For Review. Once Your Identity Has Been Verified, You Can Begin Creating Paid Content And Promote Your Profile.",
   },
   {
-    question: "How Can I Use OnlyFans As A Creator?",
+    question: "How Can I Use BastaFans As A Creator?",
     answer:
-      "You can use OnlyFans by signing up as a creator and uploading content to earn from subscriptions, tips, and PPV messages.",
+      "You can use BastaFans by signing up as a creator and uploading content to earn from subscriptions, tips, and PPV messages.",
   },
   {
-    question: "How Can I Make Money On OnlyFans?",
+    question: "How Can I Make Money On BastaFans?",
     answer:
       "You can monetize through subscriptions, tips, pay-per-view content, and paid messages to fans.",
   },

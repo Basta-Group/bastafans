@@ -13,7 +13,7 @@ const NewFooter = () => {
           <img src={bastaLogo} alt="Logo" className="w-auto h-8 mb-2" />{" "}
           {/* Adjust size as needed */}
           <span className="text-[#B0B3C6] text-sm">
-            © 2025 OnlyFans. All Rights Reserved
+            © 2025 BastaFans. All Rights Reserved
           </span>
         </div>
 
